@@ -23,17 +23,17 @@
 
     <div id="ComentariosDiscusion" >
         <div id="listComentatios" *ngFor="let comentario of comentarios" class="col-md-11">
-            <img src="" class="rounded-circle" alt="LogoUsuario"> 
-            <h5>{{comentario.Usuario}}</h5>
-            <p id="UserComent" class="form-control">{{comentario.Comentario}}</p>
+            <img src="" class="rounded-circle" style="float: left;" alt="LogoUsuario"> 
+            <h5 style="float: left; padding-left: 1%;">{{comentario.Usuario}}</h5>
+            <p id="UserComent" style="clear: left;" class="form-control">{{comentario.Comentario}}</p>
         </div>
     </div>
 
     <div id="AgregarComentario" class="panel panel-footer">
       
       <div id="EncabezadoComentario" class="col-md-11">
-        <img src="/Images/user.jpg" class="rounded-circle" alt="LogoUsuario"> 
-        <h5>{{usuarioLogueado}}</h5>
+        <img src="/Images/user.jpg" style="float: left;" class="rounded-circle" alt="LogoUsuario"> 
+        <h5 style="float: left; padding-left: 1%;">{{usuarioLogueado}}</h5>
       </div>
 
       <div id="Comentario" class="col-md-11">
