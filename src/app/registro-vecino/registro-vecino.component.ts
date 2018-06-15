@@ -10,17 +10,7 @@ export class RegistroVecinoComponent implements OnInit {
   titulo="Registro de Vecino";
 
 
-  constructor(
-
-    id:Number,
-        nombre:string,
-        apellidos:string,
-        cedula: string,
-        email:string,
-        direccion:string,
-        vecindario:Number,
-        cargo:number
-  ) { }
+  constructor() { }
 
   ngOnInit() {
   }
