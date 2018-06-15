@@ -1,0 +1,15 @@
+diff a/src/app/blog-discusiones/blog-discusiones.component.html b/src/app/blog-discusiones/blog-discusiones.component.html	(rejected hunks)
+@@ -8,12 +8,11 @@
+     <div class="panel panel-default">
+ 
+       <div class="alert alert-success" *ngFor="let comentario of comentarios">
+-        <strong>{{comentario.Usuario}}</strong> Hizo un comentario.
++        <strong>{{comentario.Usuario}}</strong> Hizo un comentario klk.
+       </div>
+ 
+     </div>
+   </div>
+-
+   <div id="CuerpoDicusion" class="col-md-10">
+     
+     <div id="EncabezadoDiscusion" class="panel">
