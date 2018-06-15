@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BlogDiscusionesComponent } from './blog-discusiones/blog-discusiones.component';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule }  from '@angular/forms';
+import { RegistroVecinoComponent } from './registro-vecino/registro-vecino.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BlogDiscusionesComponent
+    BlogDiscusionesComponent,
+    RegistroVecinoComponent
   ],
   imports: [
     BrowserModule,
