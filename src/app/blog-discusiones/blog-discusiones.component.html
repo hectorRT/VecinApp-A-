@@ -1,0 +1,47 @@
+<form #Blog="ngForm" (ngSubmit)="GuardarGasto(Blog)" id="blogDiscusiones" >
+
+<div id="titulo" class="form-group" style="text-align: center">
+  <h2>{{titulo}}</h2>
+</div>
+<div class="row">
+  <div id="Notificaciones" class="col-md-2">
+    <div class="panel panel-default">
+
+      <div class="alert alert-success" *ngFor="let comentario of comentarios">
+        <strong>{{comentario.Usuario}}</strong> Hizo un comentario.
+      </div>
+
+    </div>
+  </div>
+
+  <div id="CuerpoDicusion" class="col-md-10">
+    
+    <div id="EncabezadoDiscusion" class="panel">
+        <h4>{{tituloDiscusion}}</h4>
+        <p>{{descripcionDiscusion}}</p>
+    </div>
+
+    <div id="ComentariosDiscusion" >
+        <div id="listComentatios" *ngFor="let comentario of comentarios" class="col-md-11">
+            <img src="" class="rounded-circle" alt="LogoUsuario"> 
+            <h5>{{comentario.Usuario}}</h5>
+            <p id="UserComent" class="form-control">{{comentario.Comentario}}</p>
+        </div>
+    </div>
+
+    <div id="AgregarComentario" class="panel panel-footer">
+      
+      <div id="EncabezadoComentario" class="col-md-11">
+        <img src="/Images/user.jpg" class="rounded-circle" alt="LogoUsuario"> 
+        <h5>{{usuarioLogueado}}</h5>
+      </div>
+
+      <div id="Comentario" class="col-md-11">
+        <textarea class="form-control" ngModel #Comentario="ngModel" name="Comentario" id="textoComentario" rows="2" placeholder="Escribe tu comentario..."></textarea>
+        <input type="submit" class="btn btn-success" value="Comentar">
+      </div>
+
+    </div>
+  </div>
+</div>
+</form>
