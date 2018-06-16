@@ -10,6 +10,7 @@ import { MenuPrincipalComponent } from './menu-principal/menu-principal.componen
 import { ConsultaDiscusionesComponent } from './consulta-discusiones/consulta-discusiones.component';
 import { SolicitudesComponent } from './Solicitudes/Solicitudes.component';
 import { DiscusionRegistroComponent } from './discusion-registro/discusion-registro.component';
+import { RegistroVecindariosComponent } from './registro-vecindarios/registro-vecindarios.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DiscusionRegistroComponent } from './discusion-registro/discusion-regis
     ConsultaDiscusionesComponent
 ,
     SolicitudesComponent,
-    DiscusionRegistroComponent
+    DiscusionRegistroComponent,
+    RegistroVecindariosComponent
 ],
   imports: [
     BrowserModule,
