@@ -1,42 +1,4 @@
-/* #titulo{
-    max-width: 100%;
-    width: 100%;
-    padding: 1rem;
-    float: left; 
-}
-#Notificaciones{
-    max-width: 20%;
-    width: 20%;
-    max-height: 100%;
-    height: 100%;
-    padding: 1rem;
-    float: left;
-}
-#CuerpoDiscusion{
-    max-width: 80%;
-    width: 80%;
-    padding: 1rem;
-    float: left;
-}
-#EncabezadoDiscusion{
-    max-width: 80%;
-    width: 80%;
-}
-#AgregarComentario{
-    max-width: 80%;
-    width: 80%;
-    padding: 1rem;
-}
-#EncabezadoComentario{
- max-width: 80%;
-    width: 80%;
-    padding: 1rem;
-}
-#Comentario{
- max-width: 80%;
-    width: 80%;
-    padding: 1rem;
-} */
+
 #ComentariosDiscusion{
     height: 20rem;
     max-height: 20rem;
@@ -46,4 +8,11 @@
     height: 35rem;
     max-height: 35rem;
     overflow: scroll;
+}
+
+#AgregarComentario{
+    height: 150px;
+}
+#Imagen{
+    size: 50x50px
 }

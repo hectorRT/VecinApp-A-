@@ -1,21 +1,25 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
 <form #Blog="ngForm" (ngSubmit)="GuardarGasto(Blog)" id="blogDiscusiones" >
 
-<div id="titulo" class="form-group" style="text-align: center">
+<div id="titulo" class="form-group" style="text-align: left">
   <h2>{{titulo}}</h2>
 </div>
+<hr>
 <div class="row">
   <div id="Notificaciones" class="col-md-2">
     <div class="panel panel-default">
 
       <div class="alert alert-success" *ngFor="let comentario of comentarios">
-        <strong>{{comentario.Usuario}}</strong> Hizo un comentario klk.
+        <strong>{{comentario.Usuario}}</strong> Hizo un comentario.
       </div>
 
     </div>
   </div>
   <div id="CuerpoDicusion" class="col-md-10">
-    
-    <div id="EncabezadoDiscusion" class="panel">
+    <div id="Panel"class="panel panel-default">
+   <div id="EncabezadoDiscusion" class="panel-heading" >
         <h4>{{tituloDiscusion}}</h4>
         <p>{{descripcionDiscusion}}</p>
     </div>
@@ -28,19 +32,19 @@
         </div>
     </div>
 
-    <div id="AgregarComentario" class="panel panel-footer">
+    <div id="AgregarComentario" class="panel-footer">
       
       <div id="EncabezadoComentario" class="col-md-11">
-        <img src="/Images/user.jpg" style="float: left;" class="rounded-circle" alt="LogoUsuario"> 
+        <img id="Imagen" src="https://designdroide.com/imagesOrigin/abstract-user-icon-3.jpg" width="30" height="30" srcset="https://designdroide.com/images/abstract-user-icon-3.svg" itemprop="contentUrl" style="float: left;" title="logo Usuario"> 
         <h5 style="float: left; padding-left: 1%;">{{usuarioLogueado}}</h5>
       </div>
 
       <div id="Comentario" class="col-md-11">
         <textarea class="form-control" ngModel #Comentario="ngModel" name="Comentario" id="textoComentario" rows="2" placeholder="Escribe tu comentario..."></textarea>
-        <input type="submit" class="btn btn-success" value="Comentar">
+        <input id="BotonComentar" type="submit" class="btn btn-success" value="Comentar"  >
       </div>
 
-    </div>
+    </div></div>
   </div>
 </div>
 </form>
