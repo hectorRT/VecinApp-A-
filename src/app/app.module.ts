@@ -7,6 +7,7 @@ import { RegistroVecinoComponent } from './registro-vecino/registro-vecino.compo
 import { FormsModule }  from '@angular/forms';
 
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
+import { SolicitudesComponent } from './Solicitudes/Solicitudes.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,9 @@ import { MenuPrincipalComponent } from './menu-principal/menu-principal.componen
     BlogDiscusionesComponent,
     RegistroVecinoComponent,
     MenuPrincipalComponent
-  ],
+,
+    SolicitudesComponent
+],
   imports: [
     BrowserModule,
     FormsModule
