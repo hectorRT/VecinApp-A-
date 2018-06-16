@@ -1,0 +1,71 @@
+<div class="row">
+  <div id="Titulo" class="col-md-6">
+    <h1>Discusiones</h1>
+  </div>
+
+  <div id="Filtro" class="col-md-12" style="text-align: right">
+    <button class="btn btn-info" style="margin-left: 0.5rem; margin-right: 0.5rem; float: right;"> 
+      <span class="glyphicon glyphicon-search"></span> 
+      Buscar
+    </button>
+    <input type="text" style="max-width: 30%; float: right;" name="Criterio" id="Criterio" class="form-control" placeholder="Titulo de la discusion...">
+  </div>
+
+  <div id="Cuerpo" class="row" >
+    <div id="Notificaciones" class="col-md-2">
+
+        <!-- <div class="alert alert-success" *ngFor="let comentario of comentarios">
+          <strong>{{comentario.Usuario}}</strong> Hizo un comentario.
+        </div> -->
+        <div class="alert alert-success" >
+            <strong>Usuario</strong> Hizo un comentario.
+        </div>
+    </div>
+
+    <div id="Discusiones" class="col-md-10">
+      <div id="ListadoDiscusiones" class="">
+        <div>
+          <div class="panel-heading">
+              <h4 class="panel-title" data-toggle="collapse" href="#item">
+                <strong>Discusion</strong> 
+              </h4>
+            </div>
+          <div id="item" class="panel-collapse collapse" style="text-align: justify">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet provident alias laborum harum quaerat fugit ipsa ex, eligendi expedita natus blanditiis vero quas voluptate laudantium, facere incidunt voluptatibus dignissimos! Et.</p>
+            <div style="text-align: right;">
+                <input type="button" class="btn btn-xs-success" value="Ver">
+            </div>
+          </div>
+        </div>
+
+        <div>
+            <div class="panel-heading">
+                <h4 class="panel-title" data-toggle="collapse" href="#item1">
+                  <strong>Discusion 1</strong> 
+                </h4>
+              </div>
+            <div id="item1" class="panel-collapse collapse" style="text-align: justify">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet provident alias laborum harum quaerat fugit ipsa ex, eligendi expedita natus blanditiis vero quas voluptate laudantium, facere incidunt voluptatibus dignissimos! Et.</p>
+              <div style="text-align: right;">
+                  <input type="button" class="btn btn-xs-primary" value="Ver">
+              </div>
+            </div>
+          </div> 
+
+          <div>
+              <div class="panel-heading">
+                  <h4 class="panel-title" data-toggle="collapse" href="#item2">
+                    <strong>Discusion 2</strong> 
+                  </h4>
+                </div>
+              <div id="item2" class="panel-collapse collapse" style="text-align: justify">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet provident alias laborum harum quaerat fugit ipsa ex, eligendi expedita natus blanditiis vero quas voluptate laudantium, facere incidunt voluptatibus dignissimos! Et.</p>
+                <div style="text-align: right;">
+                    <input type="button" class="btn btn-xs-primary" value="Ver">
+                </div>
+              </div>
+            </div>       
+      </div>
+    </div>
+  </div>
+</div>
