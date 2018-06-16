@@ -9,6 +9,7 @@ import { FormsModule }  from '@angular/forms';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { ConsultaDiscusionesComponent } from './consulta-discusiones/consulta-discusiones.component';
 import { SolicitudesComponent } from './Solicitudes/Solicitudes.component';
+import { DiscusionRegistroComponent } from './discusion-registro/discusion-registro.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SolicitudesComponent } from './Solicitudes/Solicitudes.component';
     MenuPrincipalComponent,
     ConsultaDiscusionesComponent
 ,
-    SolicitudesComponent
+    SolicitudesComponent,
+    DiscusionRegistroComponent
 ],
   imports: [
     BrowserModule,
