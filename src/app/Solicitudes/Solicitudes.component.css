@@ -1,0 +1,20 @@
+
+.inputsize{
+    width: 35%;
+}
+
+#Descripcion{
+    width: 100%
+}
+.inputfecha{
+    width: 15%;
+}
+label{
+    display: -webkit-inline-box;
+   
+}
+
+.botones{
+    margin-left: 5vw;
+}
+  

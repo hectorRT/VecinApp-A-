@@ -8,6 +8,7 @@ import { FormsModule }  from '@angular/forms';
 
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { ConsultaDiscusionesComponent } from './consulta-discusiones/consulta-discusiones.component';
+import { SolicitudesComponent } from './Solicitudes/Solicitudes.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { ConsultaDiscusionesComponent } from './consulta-discusiones/consulta-di
     RegistroVecinoComponent,
     MenuPrincipalComponent,
     ConsultaDiscusionesComponent
-  ],
+,
+    SolicitudesComponent
+],
   imports: [
     BrowserModule,
     FormsModule
