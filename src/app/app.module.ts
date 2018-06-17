@@ -1,3 +1,4 @@
+import { AppModule } from './app.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -11,6 +12,11 @@ import { ConsultaDiscusionesComponent } from './consulta-discusiones/consulta-di
 import { SolicitudesComponent } from './Solicitudes/Solicitudes.component';
 import { DiscusionRegistroComponent } from './discusion-registro/discusion-registro.component';
 import { RegistroVecindariosComponent } from './registro-vecindarios/registro-vecindarios.component';
+
+
+// Rutas
+import {APP_ROUTING} from './app.routes';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +32,8 @@ import { RegistroVecindariosComponent } from './registro-vecindarios/registro-ve
 ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    APP_ROUTING
   ],
   providers: [],
   bootstrap: [AppComponent]

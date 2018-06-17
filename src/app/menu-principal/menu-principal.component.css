@@ -20,8 +20,8 @@ body{ background: rgba(119, 99, 145, 0.842);}
    #imagen{
       position: absolute;
       width: 400px;
-      top: 100PX;
-      left: 0;
+      top: 50PX;
+      left: 70%;
       right: 0;
       bottom: 20px;
       
