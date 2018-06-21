@@ -15,25 +15,25 @@
       <div class="form-group row">
           <label for="titulo-input" class="col-sm-2 col-form-label">Título</label>
           <div class="col-sm-10">
-              <input type="text" class="form-control" name="titulo-input" id="titulo-input" placeholder="Título" [(ngModel)]="model.titulo" required>
+              <input type="text" class="form-control" name="titulo-input" id="titulo-input" placeholder="Título" [(ngModel)]="discusion.Titulo" required>
           </div>
       </div>
       <div class="form-group row">
           <label for="descripcion-textarea" class="col-sm-2 col-form-label">Descripción</label>
           <div class="col-sm-10">
-              <textarea class="form-control" name="descripcion-textarea" id="descripcion-textarea" rows="3" [(ngModel)]="model.descripcion" required></textarea>
+              <textarea class="form-control" name="descripcion-textarea" id="descripcion-textarea" rows="3" [(ngModel)]="discusion.Descripcion" required></textarea>
           </div>
       </div>
       <div class="form-group row">
           <label for="fecha-input" class="col-sm-2 col-form-label">Fecha</label>
           <div class="col-sm-10">
-              <input type="date" class="form-control" name="fecha-input" id="fecha-input" [(ngModel)]="model.fecha" required>
+              <input type="date" class="form-control" name="fecha-input" id="fecha-input" [(ngModel)]="discusion.FechaCreacion" required>
           </div>
       </div>
       <div class="form-group row">
           <label for="categoria-select" class="col-sm-2 col-form-label">Categoría</label>
           <div class="col-sm-10">
-              <select class="form-control" name="categoria-select" id="categoria-select" [(ngModel)]="model.categoria" required>
+              <select class="form-control" name="categoria-select" id="categoria-select" >
                   <!-- opciones select -->
               </select>
           </div>
@@ -41,7 +41,7 @@
       <div class="form-group row">
           <label for="estatus-select" class="col-sm-2 col-form-label">Estatus</label>
           <div class="col-sm-10">
-              <select class="form-control" name="estatus-select" id="estatus-select" [(ngModel)]="model.estatus" required>
+              <select class="form-control" name="estatus-select" id="estatus-select" >
                   <!-- opciones select -->
               </select>
           </div>
@@ -49,7 +49,7 @@
       <div class="form-group row">
           <label for="conclusion-textarea" class="col-sm-2 col-form-label">Conclusión</label>
           <div class="col-sm-10">
-              <textarea class="form-control" name="conclusion-textarea" id="conclusion-textarea" rows="3" [(ngModel)]="model.conclusion"></textarea>
+              <textarea class="form-control" name="conclusion-textarea" id="conclusion-textarea" rows="3" [(ngModel)]="discusion.Conclusion"></textarea>
           </div>
       </div>
 
@@ -60,7 +60,7 @@
                   <button class="btn btn-secundary">Nuevo</button>
               </div>
               <div class="col-xs-6 col-md-3">
-                  <button type="submit" class="btn btn-primary">Guardar</button>
+                  <button type="button" (click)="Guardar()" class="btn btn-primary">Guardar</button>
               </div>
               <div class="col-xs-6 col-md-3">
                   <button class="btn btn-warning">Cancelar</button>

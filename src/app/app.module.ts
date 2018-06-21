@@ -1,6 +1,6 @@
-import { AppModule } from './app.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BlogDiscusionesComponent } from './blog-discusiones/blog-discusiones.component';
@@ -12,6 +12,9 @@ import { ConsultaDiscusionesComponent } from './consulta-discusiones/consulta-di
 import { SolicitudesComponent } from './Solicitudes/Solicitudes.component';
 import { DiscusionRegistroComponent } from './discusion-registro/discusion-registro.component';
 import { RegistroVecindariosComponent } from './registro-vecindarios/registro-vecindarios.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DiscusionesService } from '../Servicios/Discusiones-Service/discusiones.service';
+import { ComentariosService } from "../Servicios/Comentarios.Service/comentarios.service";
 
 
 // Rutas
@@ -33,9 +36,15 @@ import {APP_ROUTING} from './app.routes';
   imports: [
     BrowserModule,
     FormsModule,
-    APP_ROUTING
+    HttpClientModule,
+    APP_ROUTING,
+    RouterModule.forRoot([
+      { path: 'discusiones', component: ConsultaDiscusionesComponent},
+      { path: 'discusiones/:id', component: BlogDiscusionesComponent },
+      { path: 'rDiscusiones', component: DiscusionRegistroComponent}
+    ])
   ],
-  providers: [],
+  providers: [ ComentariosService, DiscusionesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

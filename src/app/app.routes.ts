@@ -9,9 +9,9 @@ import { RegistroVecinoComponent} from './registro-vecino/registro-vecino.compon
 //import { PageNotFoundComponent } from './';
 
 const ROUTES: Routes = [
-    { path: 'Home', component: MenuPrincipalComponent },
-    { path: 'Crear-vecinos', component: RegistroVecinoComponent },
-    { path: '**', pathMatch: 'full', redirectTo: 'Home' }
+    //{ path: 'Home', component: MenuPrincipalComponent },
+    //{ path: 'Crear-vecinos', component: RegistroVecinoComponent },
+    //{ path: '**', pathMatch: 'full', redirectTo: 'Home' }
     // { path: 'path4', component: Name4Component },
     // { path: '**', component: PageNotFoundComponent },
 
