@@ -19,6 +19,7 @@ import { ComentariosService } from "../Servicios/Comentarios.Service/comentarios
 
 // Rutas
 import {APP_ROUTING} from './app.routes';
+import { VecinosService } from '../Servicios/Vecinos-Service/vecinos.service';
 
 
 @NgModule({
@@ -27,8 +28,7 @@ import {APP_ROUTING} from './app.routes';
     BlogDiscusionesComponent,
     RegistroVecinoComponent,
     MenuPrincipalComponent,
-    ConsultaDiscusionesComponent
-,
+    ConsultaDiscusionesComponent,
     SolicitudesComponent,
     DiscusionRegistroComponent,
     RegistroVecindariosComponent
@@ -41,10 +41,11 @@ import {APP_ROUTING} from './app.routes';
     RouterModule.forRoot([
       { path: 'discusiones', component: ConsultaDiscusionesComponent},
       { path: 'discusiones/:id', component: BlogDiscusionesComponent },
-      { path: 'rDiscusiones', component: DiscusionRegistroComponent}
+      { path: 'rDiscusiones', component: DiscusionRegistroComponent},
+      { path:  'vecinos', component:RegistroVecinoComponent}
     ])
   ],
-  providers: [ ComentariosService, DiscusionesService],
+  providers: [ ComentariosService, DiscusionesService,VecinosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
