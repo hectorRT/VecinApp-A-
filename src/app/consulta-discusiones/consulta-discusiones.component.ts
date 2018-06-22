@@ -33,6 +33,7 @@ export class ConsultaDiscusionesComponent implements OnInit {
   Filtrar()
   {
     this.discusionesFilter = this.discusiones.filter((disc:Discusion) => disc.Titulo.includes(this.criterio));
+    console.log(this.discusionesFilter);
   }
 
   reDireccionar(discusion: Discusion){

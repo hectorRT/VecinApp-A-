@@ -27,7 +27,12 @@ export class BlogDiscusionesComponent implements OnInit {
     this.discusionService.getDiscusion(idDiscusion).subscribe( resultado =>
       this.discusion = resultado[0]
     )
-    this.comentarioService.getComentariosDiscusion(idDiscusion).subscribe(comentarios =>
+    this.CargarComentarios(idDiscusion);
+  }
+
+  private CargarComentarios(IdDiscusion: number)
+  {
+    this.comentarioService.getComentariosDiscusion(IdDiscusion).subscribe(comentarios =>
       this.discusionComentarios = comentarios
     )
   }
@@ -43,7 +48,10 @@ export class BlogDiscusionesComponent implements OnInit {
     this.comentario.ModifyBy = 1;
 
     this.comentarioService.addComentario(this.comentario).subscribe( data =>
-      this.discusionComentarios.push(this.comentario)
+      {
+        this.discusionComentarios = [];
+        this.CargarComentarios(this.discusion.IdDiscusion);
+      }
     )
     this.comentario = new Comentario();
   }

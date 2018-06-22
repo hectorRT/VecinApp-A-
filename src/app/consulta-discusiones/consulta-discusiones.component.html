@@ -9,19 +9,21 @@
         <span class="glyphicon glyphicon-search"></span> 
         Buscar
       </button>
-      <input type="text" style="max-width: 30%; float: right;" [(ngModel)]="criterio" (onchange)="Filtrar()" name="Criterio" id="Criterio" class="form-control" placeholder="Titulo de la discusion...">
+      <input type="text" style="max-width: 30%; float: right;" [(ngModel)]="criterio" (keyup)="Filtrar()" name="Criterio" id="Criterio" class="form-control" placeholder="Titulo de la discusion...">
     </div>
+
       <div id="Notificaciones" class="col-md-2">
   
           <div class="alert alert-success" *ngFor="let discusion of discusionesFilter">
             <strong>{{discusion.Titulo}}</strong> Hizo un comentario.
           </div>
-      </div>
-  
-      <div id="Discusiones" *ngFor="let discusion of discusionesFilter" class="col-md-10">
-        
+        </div>
+
+          <div class="panel">
+        <div id="Discusiones" *ngFor="let discusion of discusionesFilter" class="col-md-10">
+         
           <div class="panel-heading" > 
-              <h4 class="panel-title" >
+              <h4 id="textoTitulo" class="panel-title" >
                 <a data-toggle="collapse" href="#{{discusion.IdDiscusion}}"><strong>{{discusion.Titulo}}</strong></a>
                 </h4>
               <div id="{{discusion.IdDiscusion}}" class="panel-collapse collapse" style="text-align: justify">
@@ -30,9 +32,9 @@
                     <input type="button" class="btn btn-xs-success" (click)="reDireccionar(discusion)" value="Ver">
                 </div>
               </div>
-          </div>   
-        
-    
+          </div> 
       </div>
+    </div>
+    
     </div>
 </form>
