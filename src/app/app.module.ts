@@ -15,11 +15,11 @@ import { RegistroVecindariosComponent } from './registro-vecindarios/registro-ve
 import { HttpClientModule } from '@angular/common/http';
 import { DiscusionesService } from '../Servicios/Discusiones-Service/discusiones.service';
 import { ComentariosService } from "../Servicios/Comentarios.Service/comentarios.service";
-
+import { VecinoService } from '../Servicios/Vecino-Service/vecino.service';
 
 // Rutas
 import {APP_ROUTING} from './app.routes';
-import { VecinosService } from '../Servicios/Vecinos-Service/vecinos.service';
+
 
 
 @NgModule({
@@ -45,7 +45,7 @@ import { VecinosService } from '../Servicios/Vecinos-Service/vecinos.service';
       { path:  'vecinos', component:RegistroVecinoComponent}
     ])
   ],
-  providers: [ ComentariosService, DiscusionesService,VecinosService],
+  providers: [ ComentariosService, DiscusionesService,VecinoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

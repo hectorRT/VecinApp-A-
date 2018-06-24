@@ -16,13 +16,13 @@
 <!--contenido-->
 
 <div class="container text-md-right">
-      <form class="row">
+      <form #formVecino="ngForm" class="row" >
           <div class="col-sm-12 offset-md-2 col-md-8 offset-lg-3 col-lg-6">
             <!--Id-->
               <div class="form-group row">
                   <label for="id-input" class="col-sm-2 col-form-label">Id</label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" id="id-input" placeholder="Id" required>
+                      <input type="text" name="idInput" class="form-control" id="id-input" placeholder="Id" [(ngModel)]="vecino.id" required>
                   </div>
               
               </div>
@@ -30,7 +30,7 @@
               <div class="form-group row">
                   <label for="Nombres-input" class="col-sm-2 col-form-label">Nombres</label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" id="nombre-input" placeholder="Nombres" required>
+                      <input type="text" name="nombreInput" class="form-control" id="nombre-input" placeholder="Nombres" [(ngModel)]="vecino.nombres" required>
                   </div>
               </div>
 
@@ -38,28 +38,28 @@
               <div class="form-group row">
                   <label for="Apellidos-textarea" class="col-sm-2 col-form-label">Apellidos</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="apellidos-input" placeholder="Apellidos" required>
+                    <input type="text" name="apellidosInput" class="form-control" id="apellidos-input" placeholder="Apellidos" [(ngModel)]="vecino.apellidos" required>
                   </div>
               </div>
               <!--Cedula-->
               <div class="form-group row">
                   <label for="Cedula-input" class="col-sm-2 col-form-label">Cedula</label>
                   <div class="col-sm-10">
-                      <input type="number" class="form-control" id="cedula-input" placeholder="Cedula" required>
+                      <input type="text" name="cedulaInput" class="form-control" id="cedula-input" placeholder="Cedula" [(ngModel)]="vecino.cedula" required>
                   </div>
               </div>
               <!--Email-->
               <div class="form-group row">
                   <label for="Email-input" class="col-sm-2 col-form-label">Email</label>
                   <div class="col-sm-10">
-                          <input type="email" class="form-control" id="email-input" placeholder="E-Mail" required>
+                          <input type="email" name="emailInput" class="form-control" id="email-input" placeholder="E-Mail" [(ngModel)]="vecino.email" required>
                   </div>
               </div>
               <!--Direccion-->
               <div class="form-group row">
                   <label for="Direccion-input" class="col-sm-2 col-form-label">Direccion</label>
                   <div class="col-sm-10">
-                          <input type="text" class="form-control" id="direccion-input" placeholder="Direccion" required>
+                          <input type="text" name="direccionInput" class="form-control" id="direccion-input" placeholder="Direccion" [(ngModel)]="vecino.direccion" required>
                   </div>
               </div>
 
@@ -90,9 +90,9 @@
                   <div class="botones"> 
                   <div class="d-flex align-items-center justify-content-center h-100">
                       <input type="button" style="margin:2px" class="btn btn-default" value="Nuevo">
-                      <input type="button" style="margin:2px" class="btn btn-primary" value="Guardar">
+                      <button type="button" style="margin:2px" class="btn btn-primary" (click)="addVecino(formVecino)" >Guardar</button>
                       <input type="button" style="margin:2px" class="btn btn-warning" value="Cancelar">
-                      <input type="button" style="margin:2px" class="btn btn-danger" value="Eliminar">
+                      <button type="button" style="margin:2px" class="btn btn-danger" value="Buscar" (click)="getVecino(formVecino)">Buscar</button>
                   </div>
               </div>
               </div>
