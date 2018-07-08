@@ -15,7 +15,7 @@ export class RegistroVecinoComponent implements OnInit {
   //arreglos
   vecinosArray: Array<Vecino>=[];
   vecinosFilter: Array<Vecino>=[];
-  nombreInput:string='';
+  nombres:string='';
 
 
   constructor(private vecinoServicio: VecinoService) { }
@@ -23,17 +23,17 @@ export class RegistroVecinoComponent implements OnInit {
   ngOnInit() {
 
     this.vecino= new Vecino();
-    this.vecinosArray = [];
+   this.buscarVecino();
   }
 
 
-  getVecinos()
+ /* getVecinos()
   {
     this.vecinoServicio.getVecinos().subscribe(res=>{
       console.log(res);
     });
   }
-
+*/
 
 
   addVecino(data) {
@@ -57,30 +57,29 @@ export class RegistroVecinoComponent implements OnInit {
   }
 
 
-  getVecino(id:number) {
-   
-    this.vecinoServicio.getVecino(1).subscribe(res => {
-      console.log(res);
-     
-
-    });
+  /*getVecino(id:number) {
+   var data;
+   this.vecinoServicio.getVecino(1).subscribe(res => {
+      console.log(res.Nombres);
+      
+    });    
     
-    
-  }
+  }*/
 
   buscarVecino()
   {
     this.vecinoServicio.getVecinos().subscribe(vecino=>{
       this.vecinosArray=vecino;
       this.vecinosFilter=this.vecinosArray;
-    })
+    });
   }
 
   filtrar()
   {
-    this.vecinosFilter = this.vecinosArray.filter((veci:Vecino)=>veci.Nombres.includes(this.nombreInput));
+    this.vecinosFilter = this.vecinosArray.filter((veci:Vecino)=>veci.Nombres.includes(this.nombres));
     console.log(this.vecinosFilter);
-   }
+
+  }
 
   limpiar(data)
   {
