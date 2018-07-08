@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Vecino} from '../../Clases/Vecino';
 import {VecinoService} from '../../Servicios/Vecino-Service/vecino.service';
-
+import {Route} from '@angular/router';
 
 
 @Component({
@@ -12,7 +12,10 @@ import {VecinoService} from '../../Servicios/Vecino-Service/vecino.service';
 export class RegistroVecinoComponent implements OnInit {
 
   vecino:Vecino;
-  vecinosArray: Array<Vecino>;
+  //arreglos
+  vecinosArray: Array<Vecino>=[];
+  vecinosFilter: Array<Vecino>=[];
+  nombreInput:string='';
 
 
   constructor(private vecinoServicio: VecinoService) { }
@@ -48,15 +51,48 @@ export class RegistroVecinoComponent implements OnInit {
       this.vecino.IdVecino = res.data.insertId;
     });
 
+    alert("Registrado");
+    this.limpiar(data);
+
   }
 
 
   getVecino(id:number) {
-    var data;
+   
     this.vecinoServicio.getVecino(1).subscribe(res => {
       console.log(res);
+     
 
     });
     
+    
+  }
+
+  buscarVecino()
+  {
+    this.vecinoServicio.getVecinos().subscribe(vecino=>{
+      this.vecinosArray=vecino;
+      this.vecinosFilter=this.vecinosArray;
+    })
+  }
+
+  filtrar()
+  {
+    this.vecinosFilter = this.vecinosArray.filter((veci:Vecino)=>veci.Nombres.includes(this.nombreInput));
+    console.log(this.vecinosFilter);
+   }
+
+  limpiar(data)
+  {
+    data.value.nombreInput='';
+    data.value.IdVecindario = '';
+    data.value.IdCargo='';
+    data.value.IdVecino='';
+    data.value.apellidosInput='';
+    data.value.cedulaInput='';
+    data.value.direccionInput='';
+    data.value.emailInput='';
+    window.location.reload();
+
   }
 }
