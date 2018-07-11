@@ -19,6 +19,7 @@ import { VecinoService } from '../Servicios/Vecino-Service/vecino.service';
 
 // Rutas
 import {APP_ROUTING} from './app.routes';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -31,7 +32,8 @@ import {APP_ROUTING} from './app.routes';
     ConsultaDiscusionesComponent,
     SolicitudesComponent,
     DiscusionRegistroComponent,
-    RegistroVecindariosComponent
+    RegistroVecindariosComponent,
+    LoginComponent
 ],
   imports: [
     BrowserModule,
