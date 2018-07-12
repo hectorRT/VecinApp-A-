@@ -26,7 +26,8 @@ export class DiscusionRegistroComponent implements OnInit {
     this.discusinService.addDiscusion(this.discusion).subscribe(res =>
       {
         console.log(res);
-        this.discusion.IdDiscusion = res.data.insertId;
+        // this.discusion.IdDiscusion = res.data.insertId;
+        this.discusion = {}
       }
     );
   }
