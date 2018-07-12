@@ -21,7 +21,7 @@ export class SolicitudesComponent implements OnInit {
   ngOnInit() {
 
     this.solicitud= new Solicitud();
-   this.buscarSolicitudes();
+  //  this.buscarSolicitudes();
   }
 
 
