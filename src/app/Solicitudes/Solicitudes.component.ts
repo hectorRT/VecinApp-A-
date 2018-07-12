@@ -1,7 +1,7 @@
+import { SolicitudService } from './../../Servicios/Solicitudes-Service/solicitudes.service';
 
 import { Component, OnInit } from '@angular/core';
 import {Solicitud} from '../../Clases/Solicitudes';
-import {SolicitudService} from '../../Servicios/Solicitudes-Service/solicitudes.service';
 
 @Component({
   selector: 'app-Solicitudes',
@@ -21,7 +21,7 @@ export class SolicitudesComponent implements OnInit {
   ngOnInit() {
 
     this.solicitud= new Solicitud();
-   this.buscarSolicitudes();
+   this.buscarSolicitud();
   }
 
 
@@ -36,13 +36,12 @@ export class SolicitudesComponent implements OnInit {
 
   addSolicitudes(data) {
 
-    this.solicitud.Fecha = data.value.fechaInput;
-    this.solicitud.Tema = data.value.temaInput;
-    this.solicitud.Descripcion = data.value.descripcionInput;
+    this.solicitud.fecha = data.value.fechaInput;
+    this.solicitud.tema = data.value.temaInput;
+    this.solicitud.descripcion = data.value.descripcionInput;
 
     this.SolicitudServicio.addSolicitudes(this.solicitud).subscribe(res => {
       console.log(res);
-      this.solicitud.IdSolicitudes = res.data.insertId;
     });
 
     alert("Registrado");
@@ -50,16 +49,20 @@ export class SolicitudesComponent implements OnInit {
 
   }
 
-
-  /*getVecino(id:number) {
+  getVecino(id:number) {
    var data;
-   this.vecinoServicio.getVecino(1).subscribe(res => {
-      console.log(res.Nombres);
+   this.SolicitudServicio.getSolicitude(id).subscribe(res => {
+      console.log(res);
       
     });    
     
-  }*/
-
+  }
+  Eliminar(id:number) {
+    this.SolicitudServicio.getEliminar(id).subscribe(res => {
+       console.log(res);
+     });    
+     
+   }
   buscarSolicitud()
   {
     this.SolicitudServicio.getSolicitudes().subscribe(vecino=>{
@@ -70,7 +73,7 @@ export class SolicitudesComponent implements OnInit {
 
   filtrar()
   {
-    this.SolicitudFilter = this.SolicitudArray.filter((veci:Solicitud)=>veci.Tema.includes(this.tema));
+    this.SolicitudFilter = this.SolicitudArray.filter((veci:Solicitud)=>veci.tema.includes(this.tema));
     console.log(this.SolicitudFilter);
 
   }

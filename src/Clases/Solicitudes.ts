@@ -1,14 +1,14 @@
 export class Solicitud{
 
     constructor(
-        public IdSolicitudes?:number,
-        public Fecha?:Date,
-        public Tema?:String,
-        public Descripcion?: number
+        public id?:number,
+        public fecha?:Date,
+        public tema?:String,
+        public descripcion?: number
     ){
-        this.IdSolicitudes= (IdSolicitudes) ? IdSolicitudes : 0;
-        this.Fecha =  Fecha;
-        this.Tema =  Tema;
-        this.Descripcion = Descripcion;
+        this.id= (id) ? id : 0;
+        this.fecha =  fecha;
+        this.tema =  tema;
+        this.descripcion = descripcion;
     }
 }

@@ -1,3 +1,4 @@
+import { SolicitudService } from './../Servicios/Solicitudes-Service/solicitudes.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -45,10 +46,11 @@ import { LoginComponent } from './login/login.component';
       { path: 'discusiones', component: ConsultaDiscusionesComponent},
       { path: 'discusiones/:id', component: BlogDiscusionesComponent },
       { path: 'rDiscusiones', component: DiscusionRegistroComponent},
-      { path:  'vecinos', component:RegistroVecinoComponent}
+      { path:  'vecinos', component:RegistroVecinoComponent},
+      { path:  'solicitudes', component:SolicitudesComponent}
     ])
   ],
-  providers: [ ComentariosService, DiscusionesService,VecinoService],
+  providers: [ ComentariosService, DiscusionesService,VecinoService,SolicitudService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
