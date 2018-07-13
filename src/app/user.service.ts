@@ -10,12 +10,13 @@ export class UserService {
   	this.isUserLoggedIn = false;
   }
 
-  setUserLoggedIn() {
+  setUserLoggedIn(usernamee) {
+    this.username = usernamee;
   	this.isUserLoggedIn = true;
   }
 
   getUserLoggedIn() {
-  	return this.isUserLoggedIn;
+  	return this.isUserLoggedIn,this.username;
   }
 
 }
