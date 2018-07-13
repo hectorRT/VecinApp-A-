@@ -46,8 +46,9 @@ import { LoginComponent } from './login/login.component';
       { path: 'discusiones', component: ConsultaDiscusionesComponent},
       { path: 'discusiones/:id', component: BlogDiscusionesComponent },
       { path: 'rDiscusiones', component: DiscusionRegistroComponent},
-      { path:  'vecinos', component:RegistroVecinoComponent},
-      { path:  'solicitudes', component:SolicitudesComponent}
+      { path: 'rDiscusiones/:id', component: DiscusionRegistroComponent},      
+      { path: 'vecinos', component:RegistroVecinoComponent},
+      { path: 'solicitudes', component:SolicitudesComponent},
     ])
   ],
   providers: [ ComentariosService, DiscusionesService,VecinoService,SolicitudService],

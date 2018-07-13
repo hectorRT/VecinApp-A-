@@ -72,7 +72,8 @@ export class DiscusionesService{
     
       updateDiscusion (discusion: Discusion): Observable<null> {
 
-        return this.http.put(this.discusionesUrl, discusion, httpOptions).pipe(
+        const url =  `${this.discusionesUrl}/${discusion.IdDiscusion}`;
+        return this.http.put(url, discusion, httpOptions).pipe(
           tap(_ => this.log(`updated discusion id=${discusion.IdDiscusion}`)),
           catchError(this.handleError<any>('updateDiscusion'))
         );
