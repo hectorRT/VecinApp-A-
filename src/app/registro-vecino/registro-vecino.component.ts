@@ -74,7 +74,7 @@ getFrecuencias()
     this.vecino.Cedula = data.value.cedulaInput;
     this.vecino.Email = data.value.emailInput;
     this.vecino.Direccion =data.value.direccionInput;
-    this.vecino.IdFrecuencia=data.value.FrecuenciaSelect;
+    this.vecino.Idfrecuencia=data.value.FrecuenciaSelect;
     this.vecino.IdCargo=data.value.CargoSelect;
 
     this.vecinoServicio.addVecino(this.vecino).subscribe(res => {

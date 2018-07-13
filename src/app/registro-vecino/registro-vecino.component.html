@@ -68,8 +68,8 @@
               <div class="form-group row">
                   <label for="frecuencia-select" class="col-sm-2 col-form-label">Frecuencia Pago</label>
                   <div class="col-sm-10">
-                      <select class="form-control" id="frecuencia-select" [(ngModel)]="FrecuenciaSelect"  required>
-                        <option *ngFor="let frecuencia of frecuenciaArray" value="{{frecuencia.IdFrecuencia}}">
+                      <select class="form-control" id="frecuencia-select" name="FrecuenciaSelect" [(ngModel)]="FrecuenciaSelect"  required>
+                        <option *ngFor="let frecuencia of frecuenciaArray" value="{{frecuencia.Idfrecuencia}}">
                             {{frecuencia.frecuencia}}
                         </option>
                       </select>
