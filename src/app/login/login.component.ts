@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   	
   	if(username == 'admin' && password == 'admin') {
       this.user.setUserLoggedIn(username);
-  		this.router.navigate(['solicitudes']);
+  		this.router.navigate(['menu']);
   	}
   }
 }

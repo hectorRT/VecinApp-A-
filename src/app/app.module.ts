@@ -28,8 +28,8 @@ import { UserService } from './user.service'
 
 const appRoutes:Routes = [
   {
-    path: 'solicitudes',
-    component: SolicitudesComponent
+    path: 'menu',
+    component: MenuPrincipalComponent
   },
   //  {
   //    path: 'solicitudes',
