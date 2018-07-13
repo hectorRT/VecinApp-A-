@@ -73,6 +73,7 @@ getFrecuencias()
     this.vecino.Apellidos = data.value.apellidosInput;
     this.vecino.Cedula = data.value.cedulaInput;
     this.vecino.Email = data.value.emailInput;
+    this.vecino.Clave=data.value.claveInput;
     this.vecino.Direccion =data.value.direccionInput;
     this.vecino.Idfrecuencia=data.value.FrecuenciaSelect;
     this.vecino.IdCargo=data.value.CargoSelect;

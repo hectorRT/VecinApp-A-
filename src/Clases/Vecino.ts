@@ -9,6 +9,7 @@ export class Vecino{
         public Apellidos?:String,
         public Cedula?: number,
         public Email?:string,
+        public Clave?:string,
         public Direccion?:String
     ){
         this.IdVecino= (IdVecino) ? IdVecino : 0;
@@ -19,6 +20,7 @@ export class Vecino{
         this.Apellidos =  Apellidos;
         this.Cedula = Cedula;
         this.Email = Email;
+        this.Clave=Clave;
         this.Direccion =  Direccion;
     }
 }
