@@ -78,15 +78,17 @@ getFrecuencias()
     this.vecino.Idfrecuencia=data.value.FrecuenciaSelect;
     this.vecino.IdCargo=data.value.CargoSelect;
 
-    this.vecinoServicio.addVecino(this.vecino).subscribe(res => {
-      console.log(res);
-      this.vecino.IdVecino = res.data.insertId;
-    });
-
-    alert("Registrado");
-    this.limpiar(data);
+      this.vecinoServicio.addVecino(this.vecino).subscribe(res => {
+        console.log(res);
+        this.vecino.IdVecino = res.data.insertId;
+      });
+  
+      alert("Registrado");
+      this.limpiar(data);
 
   }
+
+
 
 
   /*getVecino(id:number) {
