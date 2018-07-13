@@ -68,6 +68,7 @@ export class SolicitudesComponent implements OnInit {
     this.SolicitudServicio.getSolicitudes().subscribe(vecino=>{
       this.SolicitudArray=vecino;
       this.SolicitudFilter=this.SolicitudArray;
+
     });
   }
 
