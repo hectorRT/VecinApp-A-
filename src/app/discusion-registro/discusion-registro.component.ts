@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DiscusionesService } from "../../Servicios/Discusiones-Service/discusiones.service";
 import { Discusion } from "../../Clases/Discusion";
 import { EstadoDiscusion } from '../../Clases/EstadoDiscusion';
+import { FormControl } from '../../../node_modules/@angular/forms';
 
 @Component({
   selector: 'app-discusion-registro',
@@ -40,5 +41,14 @@ export class DiscusionRegistroComponent implements OnInit {
       }
     );
   }
+
+  // guardarDiscusion(form: FormControl) {
+  // 
+  //   if (form.valid) {
+  //     console.log('hay errores FORM');
+  //   } else {
+  //     console.log('NO hay errores FORM');
+  //   }
+  // }
 
 }
