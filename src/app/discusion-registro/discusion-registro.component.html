@@ -9,9 +9,10 @@
 <hr>
 
 
+
 <!-- formulario -->
 <div class="container text-md-right">
-  <form #f="ngForm" (ngSubmit)="guardarDiscusion(f)" class="row">
+  <form #f="ngForm" class="row">
   <div class="col-sm-12 offset-md-2 col-md-8 offset-lg-3 col-lg-6">
       <div class="form-group row">
           <label for="titulo-input" class="col-sm-2 col-form-label">Título</label>
@@ -79,7 +80,7 @@
               </div> -->
               
               <div class="col-xs-3 col-xs-offset-3">
-                  <button type="button" (click)="Guardar()" class="btn btn-primary" [disabled]="!f.valid">Guardar</button>
+                  <button type="button" (click)="onSave()" class="btn btn-primary" [disabled]="!f.valid">Guardar</button>
               </div>
 
               <!-- <div class="col-xs-6 col-md-3">
