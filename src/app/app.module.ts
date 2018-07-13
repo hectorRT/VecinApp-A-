@@ -1,12 +1,7 @@
 import { SolicitudService } from './../Servicios/Solicitudes-Service/solicitudes.service';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 
-import { AppComponent } from './app.component';
 import { BlogDiscusionesComponent } from './blog-discusiones/blog-discusiones.component';
 import { RegistroVecinoComponent } from './registro-vecino/registro-vecino.component';
-import { FormsModule }  from '@angular/forms';
 
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { ConsultaDiscusionesComponent } from './consulta-discusiones/consulta-discusiones.component';
@@ -21,13 +16,31 @@ import { VecinoService } from '../Servicios/Vecino-Service/vecino.service';
 
 // Rutas
 import {APP_ROUTING} from './app.routes';
-import { LoginComponent } from './login/login.component';
 
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthguardGuard } from './authguard.guard';
+import { UserService } from './user.service'
+
+const appRoutes:Routes = [
+  {
+    path: 'solicitudes',
+    component: SolicitudesComponent
+  },
+  //  {
+  //    path: 'solicitudes',
+  //    canActivate: [AuthguardGuard],
+  //    component: SolicitudesComponent
+  //  }
+]
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
+  declarations: [AppComponent, 
     BlogDiscusionesComponent,
     RegistroVecinoComponent,
     MenuPrincipalComponent,
@@ -35,8 +48,7 @@ import { LoginComponent } from './login/login.component';
     SolicitudesComponent,
     DiscusionRegistroComponent,
     RegistroVecindariosComponent,
-    LoginComponent
-],
+    LoginComponent,],
   imports: [
     BrowserModule,
     FormsModule,
@@ -49,9 +61,13 @@ import { LoginComponent } from './login/login.component';
       { path: 'rDiscusiones/:id', component: DiscusionRegistroComponent},      
       { path: 'vecinos', component:RegistroVecinoComponent},
       { path: 'solicitudes', component:SolicitudesComponent},
-    ])
+      { path: 'login', component:LoginComponent},
+    ]),
+  RouterModule.forRoot(appRoutes),
+  BrowserModule
   ],
-  providers: [ ComentariosService, DiscusionesService,VecinoService,SolicitudService],
+  providers: [UserService, AuthguardGuard,ComentariosService, DiscusionesService,VecinoService,SolicitudService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
