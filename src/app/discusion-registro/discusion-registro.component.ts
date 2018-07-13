@@ -71,7 +71,14 @@ export class DiscusionRegistroComponent implements OnInit {
     this.discusionService.updateDiscusion(this.discusion).subscribe(res => {
       console.log(res);
       this.discusion = {}
-    })
+    });
+  }
+
+  onDelete() {
+    this.discusionService.deleteDiscusion(this.discusion.IdDiscusion).subscribe(res => {
+      console.log(res);
+      this.discusion = {};
+    });
   }
 
   // guardarDiscusion(form: FormControl) {

@@ -59,7 +59,7 @@ export class DiscusionesService{
 
       }
     
-      deleteDiscusion (id: string): Observable<null> {
+      deleteDiscusion (id: number): Observable<null> {
 
         const url = `${this.discusionesUrl}/${id}`;
     
