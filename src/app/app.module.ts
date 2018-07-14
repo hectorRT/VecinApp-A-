@@ -24,7 +24,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthguardGuard } from './authguard.guard';
-import { UserService } from './user.service'
+import { UserService } from './user.service';
+import { RegistroEventosComponent } from './registro-eventos/registro-eventos.component';
+import { EventoService } from '../Servicios/Evento/evento.service';
 
 const appRoutes:Routes = [
   {
@@ -48,7 +50,8 @@ const appRoutes:Routes = [
     SolicitudesComponent,
     DiscusionRegistroComponent,
     RegistroVecindariosComponent,
-    LoginComponent,],
+    LoginComponent,
+    RegistroEventosComponent,],
   imports: [
     BrowserModule,
     FormsModule,
@@ -62,11 +65,14 @@ const appRoutes:Routes = [
       { path: 'vecinos', component:RegistroVecinoComponent},
       { path: 'solicitudes', component:SolicitudesComponent},
       { path: 'login', component:LoginComponent},
+      { path: 'rEventos', component: RegistroEventosComponent},
+      { path: 'rEventos/:id', component: RegistroEventosComponent},
+
     ]),
   RouterModule.forRoot(appRoutes),
   BrowserModule
   ],
-  providers: [UserService, AuthguardGuard,ComentariosService, DiscusionesService,VecinoService,SolicitudService],
+  providers: [UserService, AuthguardGuard,ComentariosService, DiscusionesService,VecinoService,SolicitudService,EventoService],
   bootstrap: [AppComponent]
 })
 
