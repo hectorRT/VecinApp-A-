@@ -14,6 +14,10 @@ import { ComentariosService } from "../Servicios/Comentarios.Service/comentarios
 import { VecinoService } from '../Servicios/Vecino-Service/vecino.service';
 
 
+import { RegistroAportesComponent } from './registro-aportes/registro-aportes.component';
+
+import { Aporteservice } from '../Servicios/Aportes-Service/aporte.service';
+
 // Rutas
 import {APP_ROUTING} from './app.routes';
 
@@ -43,6 +47,7 @@ const appRoutes:Routes = [
   declarations: [AppComponent, 
     BlogDiscusionesComponent,
     RegistroVecinoComponent,
+    RegistroAportesComponent,
     MenuPrincipalComponent,
     ConsultaDiscusionesComponent,
     SolicitudesComponent,
@@ -56,6 +61,7 @@ const appRoutes:Routes = [
     APP_ROUTING,
     RouterModule.forRoot([
       { path: 'discusiones', component: ConsultaDiscusionesComponent},
+      { path: 'aportes', component: RegistroAportesComponent},
       { path: 'discusiones/:id', component: BlogDiscusionesComponent },
       { path: 'rDiscusiones', component: DiscusionRegistroComponent},
       { path: 'rDiscusiones/:id', component: DiscusionRegistroComponent},      
@@ -66,7 +72,7 @@ const appRoutes:Routes = [
   RouterModule.forRoot(appRoutes),
   BrowserModule
   ],
-  providers: [UserService, AuthguardGuard,ComentariosService, DiscusionesService,VecinoService,SolicitudService],
+  providers: [UserService, AuthguardGuard,ComentariosService, DiscusionesService,VecinoService,SolicitudService,Aporteservice],
   bootstrap: [AppComponent]
 })
 

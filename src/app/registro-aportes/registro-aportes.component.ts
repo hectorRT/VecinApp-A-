@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Aportes} from '../../Clases/Aportes';
 import { Aporteservice } from './../../Servicios/Aportes-Service/aporte.service';
+import { VecinoService } from './../../Servicios/Vecino-Service/vecino.service';
+import {Vecino} from '../../Clases/Vecino';
 
 @Component({
   selector: 'app-registro-aportes',
@@ -9,20 +11,25 @@ import { Aporteservice } from './../../Servicios/Aportes-Service/aporte.service'
 })
 export class RegistroAportesComponent implements OnInit {
 
-
+  vecino:Vecino;
   aporte:Aportes;
   //arreglos
   AporteArray: Array<Aportes>=[];
+  VecinoArray: Array<Vecino>=[];
+  VecinosArray: Array<Vecino>=[];
   AporteFilter: Array<Aportes>=[];
   tema:string='';
 
 
-  constructor(private AporteServicio: Aporteservice) { }
+  constructor(private AporteServicio: Aporteservice,private Vecinoservice: VecinoService) { }
 
   ngOnInit() {
 
     this.aporte= new Aportes();
     this.buscarAporte();
+    this.getVecinos();
+    this.vecino= new Vecino();
+  
   }
 
 
@@ -40,20 +47,34 @@ export class RegistroAportesComponent implements OnInit {
 
   }
 
+ 
   getVecino(id:number) {
    var data;
-   this.AporteServicio.getAporte(id).subscribe(res => {
+   this.Vecinoservice.getVecino(id).subscribe(res => {
       console.log(res);
       
     });    
     
   }
+
+  getVecinos()
+  {
+    this.Vecinoservice.getAllVecino().subscribe(res=>{
+      console.log(res);
+      this.VecinoArray=res;
+       this.VecinosArray=this.VecinoArray;
+       console.log(this.VecinosArray);
+    })
+  }
+  
   Eliminar(id:number) {
     this.AporteServicio.getEliminar(id).subscribe(res => {
        console.log(res);
      });    
      
    }
+  
+ 
   buscarAporte()
   {
     this.AporteServicio.getAportes().subscribe(aporte=>{
@@ -62,6 +83,8 @@ export class RegistroAportesComponent implements OnInit {
 
     });
   }
+
+  
 
   filtrar()
   {

@@ -28,6 +28,17 @@ export class VecinoService {
       );
   }
 
+  
+  getAllVecino(): Observable<Vecino[]> {
+
+    return this.http.get<Vecino[]>(this.VecinoEmailUrl)
+      .pipe(
+        tap(heroes => this.log('fetched Frecuencia')),
+        catchError(this.handleError('getFrecuencia', []))
+      );
+  }
+
+
 
   getVecino(id: number): Observable<Vecino> {
     const url = `${this.VecinoUrl}/${id}`;
