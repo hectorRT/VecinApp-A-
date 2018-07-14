@@ -1,4 +1,4 @@
-<form #Blog="ngForm" (ngSubmit)="GuardarGasto(Blog)" id="blogDiscusiones" >
+<form #Blog="ngForm"  id="blogDiscusiones" >
   <div class="row">
     <div id="Notificaciones" class="col-md-2">
       <div class="panel panel-default">
@@ -12,9 +12,15 @@
     <div id="CuerpoDicusion" class="col-md-10">
       <div id="Panel"class="panel panel-default">
     <div id="EncabezadoDiscusion" class="panel-heading" >
-          <h4><strong>{{discusion.Titulo}}</strong></h4>
-          <p>{{discusion.Descripcion}}</p>
-      </div>
+      
+        <h4><strong>{{discusion.Titulo}}</strong></h4>
+        <!-- Necesario que el botón vaya en medio del titulo y la descripción al parecer -->
+        <button class="btn btn-success pull-right" (click)="onUpdate()">Modificar</button>
+
+        <p>{{discusion.Descripcion}}</p>
+
+
+    </div>
 
       <div id="ComentariosDiscusion" >
           <div id="listComentatios" *ngFor="let comentario of discusionComentarios" class="col-md-11">

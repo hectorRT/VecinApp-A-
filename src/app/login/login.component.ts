@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {UserService} from '../user.service';
+import { VecinoService } from '../../Servicios/Vecino-Service/vecino.service';
+import { Vecino } from '../../Clases/Vecino';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +11,17 @@ import {UserService} from '../user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router:Router, private user:UserService) { }
+  constructor(private router:Router, private vecino:VecinoService) { }
+
+  vecinosArray:Vecino;
+  vecinosFilter:Array<Vecino>=[];
+  vecinosClave:Array<Vecino>=[];
+  InputEmail:string='';
+  Password:string='';
 
   ngOnInit() {
   }
-  loginUser(e) {
+  /*loginUser(e) {
   	e.preventDefault();
   	console.log(e);
   	var username = e.target.elements[0].value;
@@ -23,5 +31,19 @@ export class LoginComponent implements OnInit {
       this.user.setUserLoggedIn(username);
   		this.router.navigate(['menu']);
   	}
+  }*/
+
+  
+  buscarVecino()
+  {
+
+    this.vecino.getVecinoEmail(this.InputEmail).subscribe(email=>{
+      this.vecinosArray=email;
+      console.log(this.vecinosArray);
+
+    });
   }
+
+  
+
 }
