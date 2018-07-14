@@ -22,8 +22,8 @@ export class Aporteservice {
 
     return this.http.get<Aportes[]>(this.AportesUrl)
       .pipe(
-        tap(heroes => this.log('fetched Solicitudes')),
-        catchError(this.handleError('getSolicitudes', []))
+        tap(heroes => this.log('fetched Aportes')),
+        catchError(this.handleError('getAportes', []))
       );
   }
 
@@ -33,7 +33,7 @@ export class Aporteservice {
 
     return this.http.get<Aportes>(url).pipe(
       tap(_ => this.log(`fetched hero id=${id}`)),
-      catchError(this.handleError<Aportes>(`getSolicitudes id=${id}`))
+      catchError(this.handleError<Aportes>(`getAportes id=${id}`))
     );
   }
 
@@ -42,12 +42,12 @@ export class Aporteservice {
 
     return this.http.delete<Aportes>(url).pipe(
       tap(_ => this.log(`fetched hero id=${id}`)),
-      catchError(this.handleError<Aportes>(`DeleteSolicitudes id=${id}`))
+      catchError(this.handleError<Aportes>(`DeleteAportes id=${id}`))
     );
   }
   addAportes (aporte: Aportes): Observable<any> {
     return this.http.post<Aportes>(this.AportesUrl, aporte, httpOptions).pipe(
-      tap((aporte: Aportes) => this.log(`added Solicitudes w/ id=${aporte.IdAporte}`)),
+      tap((aporte: Aportes) => this.log(`added Aportes w/ id=${aporte.IdAporte}`)),
       catchError(this.handleError<Aportes>('addAportes'))
     );
   }
@@ -65,7 +65,7 @@ export class Aporteservice {
   }
 
   private log(message: string) {
-    console.log('SolicitudesService: ' + message);
+    console.log('AportesService: ' + message);
   }
 }
 
