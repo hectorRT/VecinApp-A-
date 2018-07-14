@@ -33,7 +33,6 @@ export class RegistroVecinoComponent implements OnInit {
     this.vecino= new Vecino();
     this.getCargos();
     this.getFrecuencias();
-   this.buscarVecino();
   }
 
 
@@ -98,7 +97,7 @@ getFrecuencias()
       
     });    
     
-  }*/
+  }
 
   buscarVecino()
   {
@@ -113,7 +112,7 @@ getFrecuencias()
     this.vecinosFilter = this.vecinosArray.filter((veci:Vecino)=>veci.Nombres.includes(this.nombres));
     console.log(this.vecinosFilter);
 
-  }
+  }*/
 
   limpiar(data)
   {

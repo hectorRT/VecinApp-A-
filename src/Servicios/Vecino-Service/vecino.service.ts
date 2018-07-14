@@ -16,6 +16,7 @@ const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/jso
 export class VecinoService {
 
   private VecinoUrl="http://localhost:3000/vecinos";
+  private VecinoEmailUrl="http://localhost:3000/Vecinos/Email";
   constructor(private http:  HttpClient) { }
 
   getVecinos(): Observable<Vecino[]> {
@@ -36,6 +37,18 @@ export class VecinoService {
       catchError(this.handleError<Vecino>(`getVecino id=${id}`))
     );
   }
+
+
+
+  getVecinoEmail(email: string): Observable<Vecino> {
+    const url = `${this.VecinoEmailUrl}/${email}`;
+
+    return this.http.get<Vecino>(url).pipe(
+      tap(_ => this.log(`fetched hero email=${email}`)),
+      catchError(this.handleError<Vecino>(`getVecino email=${email}`))
+    );
+  }
+
 
   addVecino (vecino: Vecino): Observable<any> {
     return this.http.post<Vecino>(this.VecinoUrl, vecino, httpOptions).pipe(
