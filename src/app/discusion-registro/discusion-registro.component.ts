@@ -39,6 +39,12 @@ export class DiscusionRegistroComponent implements OnInit {
 
   }
 
+  limpiar() {
+    this.discusion = {}
+    
+    // console.log(this.discusion);
+  }
+
   onSave() {
     console.log(this.discusion);
     if (this.discusion.IdDiscusion == 0 || this.discusion.IdDiscusion == undefined) {
@@ -56,8 +62,8 @@ export class DiscusionRegistroComponent implements OnInit {
     this.discusionService.addDiscusion(this.discusion).subscribe(res =>
       {
         console.log(res);
-        // this.discusion.IdDiscusion = res.data.insertId;
-        this.discusion = {}
+        this.discusion.IdDiscusion = res.data.insertId;
+        // this.discusion = {}
       }
     );
   }
@@ -70,7 +76,7 @@ export class DiscusionRegistroComponent implements OnInit {
 
     this.discusionService.updateDiscusion(this.discusion).subscribe(res => {
       console.log(res);
-      this.discusion = {}
+      // this.discusion = {}
     });
   }
 

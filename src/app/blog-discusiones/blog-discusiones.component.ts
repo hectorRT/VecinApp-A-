@@ -3,7 +3,7 @@ import { ComentariosService } from "../../Servicios/Comentarios.Service/comentar
 import { DiscusionesService } from "../../Servicios/Discusiones-Service/discusiones.service";
 import { Comentario } from "../../Clases/Comentario";
 import { Discusion } from "../../Clases/Discusion";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-blog-discusiones',
@@ -16,7 +16,7 @@ export class BlogDiscusionesComponent implements OnInit {
   discusionComentarios: Array<Comentario>;
   comentario: Comentario
 
-  constructor(private _route: ActivatedRoute,private discusionService: DiscusionesService,
+  constructor(private _route: ActivatedRoute, private _router: Router, private discusionService: DiscusionesService,
             private comentarioService: ComentariosService) { }
 
   ngOnInit() {
@@ -54,5 +54,11 @@ export class BlogDiscusionesComponent implements OnInit {
       }
     )
     this.comentario = new Comentario();
+  }
+
+  onUpdate() {
+    this._router.navigate([`/rDiscusiones/${this.discusion.IdDiscusion}`]);
+    //this._router.navigate([`/discusiones/${discusion.IdDiscusion}`]);
+
   }
 }
