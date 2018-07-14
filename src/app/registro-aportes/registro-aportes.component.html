@@ -17,7 +17,7 @@
   
 <!-- formulario -->
 <div class="container text-md-right">
-  <form #formAporte="ngForm" (ngSubmit)="guardarDiscusion(formDiscusion)" class="row">
+  <form #formAporte="ngForm" class="row">
   <div class="col-sm-12 offset-md-2 col-md-8 offset-lg-3 col-lg-6">
      
    
@@ -37,7 +37,7 @@
       <div class="form-group row">
           <label for="categoria-select" class="col-sm-2 col-form-label">Nombre</label>
           <div class="col-sm-10">
-              <input type="text" class="form-control" name="nombreinput" id="nombreinput" [(ngModel)]="Nombre" required>
+              <input type="text" class="form-control" name="nombreinput" id="nombreinput" [(ngModel)]="nombreinput" required>
             
           </div>
       </div>
@@ -50,7 +50,7 @@
       <div class="form-group row">
           <label for="estatus-select" class="col-sm-2 col-form-label">Nota</label>
           <div class="col-sm-10">
-              <textarea class="form-control" name="notatextarea" id="notatextarea" rows="3" [(ngModel)]="Nota" required></textarea>
+              <textarea class="form-control" name="notatextarea" id="notatextarea" rows="3" [(ngModel)]="notatextarea" required></textarea>
        
           </div>
       </div>

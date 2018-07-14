@@ -45,14 +45,13 @@ export class Aporteservice {
       catchError(this.handleError<Aportes>(`DeleteAportes id=${id}`))
     );
   }
+
   addAportes (aporte: Aportes): Observable<any> {
     return this.http.post<Aportes>(this.AportesUrl, aporte, httpOptions).pipe(
-      tap((aporte: Aportes) => this.log(`added Aportes w/ id=${aporte.IdAporte}`)),
-      catchError(this.handleError<Aportes>('addAportes'))
+      tap((aporte: Aportes) => this.log(`added aportes w/ id=${aporte.IdAporte}`)),
+      catchError(this.handleError<Aportes>('addaportes'))
     );
   }
-
-
   
 
   private handleError<T> (operation = 'operation', result?: T) {
