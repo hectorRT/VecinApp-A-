@@ -5,6 +5,7 @@ import { VecinoService } from './../../Servicios/Vecino-Service/vecino.service';
 import {Vecino} from '../../Clases/Vecino';
 import {Route} from '@angular/router';
 
+
 @Component({
   selector: 'app-registro-aportes',
   templateUrl: './registro-aportes.component.html',
@@ -35,14 +36,16 @@ export class RegistroAportesComponent implements OnInit {
 
   addAportes(data) {
 
-    this.aporte.FechaCreacion = data.value.fechainput;
-    this.aporte.IdVecino = data.value.idVecinoinput;
-    this.aporte.Nombre = data.value.nombreinput;
-    this.aporte.Nota = data.value.notatextarea;
+    // this.aporte.FechaCreacion = data.value.fechainput;
+    // this.aporte.IdVecino = data.value.idVecinoinput;
+    // this.aporte.Nombre = data.value.nombreinput;
+    // this.aporte.Nota = data.value.notatextarea;
 
-    this.AporteServicio.addAportes(data).subscribe(res=>{
+    console.log(JSON.stringify(this.aporte));
+
+    this.AporteServicio.addAportes(this.aporte).subscribe(res=>{
       console.log(res);
-       this.aporte.IdAporte=res.data.insertId;
+  
     });
   
  

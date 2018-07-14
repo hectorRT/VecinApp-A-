@@ -21,10 +21,9 @@ export class Aporteservice {
   getAportes(): Observable<Aportes[]> {
 
     return this.http.get<Aportes[]>(this.AportesUrl)
-      .pipe(
-        tap(heroes => this.log('fetched Aportes')),
-        catchError(this.handleError('getAportes', []))
-      );
+    .pipe(
+      tap(() => this.log(`fetched Aportes`)), catchError(this.handleError<Aportes[]>(`Error`))
+    );
   }
 
 
@@ -47,8 +46,8 @@ export class Aporteservice {
   }
 
   addAportes (aporte: Aportes): Observable<any> {
-    return this.http.post<Aportes>(this.AportesUrl, aporte, httpOptions).pipe(
-      tap((aporte: Aportes) => this.log(`added aportes w/ id=${aporte.IdAporte}`)),
+    return this.http.post<any>(this.AportesUrl, aporte, httpOptions).pipe(
+      tap((res: any) => this.log(`added aportes w/ id=${res.data.insertId}`)),
       catchError(this.handleError<Aportes>('addaportes'))
     );
   }
