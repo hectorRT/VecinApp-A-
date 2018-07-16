@@ -31,7 +31,7 @@ export class VecinoService {
   
   getAllVecino(): Observable<Vecino[]> {
 
-    return this.http.get<Vecino[]>(this.VecinoEmailUrl)
+    return this.http.get<Vecino[]>(this.VecinoUrl)
       .pipe(
         tap(heroes => this.log('fetched Frecuencia')),
         catchError(this.handleError('getFrecuencia', []))

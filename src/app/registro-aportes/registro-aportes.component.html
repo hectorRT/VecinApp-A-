@@ -17,7 +17,7 @@
   
 <!-- formulario -->
 <div class="container text-md-right">
-  <form #formAporte="ngForm" (ngSubmit)="guardarDiscusion(formDiscusion)" class="row">
+  <form #formAporte="ngForm" class="row">
   <div class="col-sm-12 offset-md-2 col-md-8 offset-lg-3 col-lg-6">
      
    
@@ -25,7 +25,7 @@
           <label for="fechainput" class="col-sm-2 col-form-label">Vecino</label>
           <div class="col-sm-10">
           
-                <select class="form-control" id="idVecinoinput" name="idVecinoinput" [(ngModel)]="idVecinoinput"  required>
+                <select class="form-control" id="idVecinoinput" name="idVecinoinput" [(ngModel)]="aporte.IdVecino"  required>
                   <option *ngFor="let VecinoArray of VecinosArray" value="{{VecinoArray.IdVecino}}">
                       {{VecinoArray.Nombres}}
                   </option>
@@ -37,20 +37,20 @@
       <div class="form-group row">
           <label for="categoria-select" class="col-sm-2 col-form-label">Nombre</label>
           <div class="col-sm-10">
-              <input type="text" class="form-control" name="nombreinput" id="nombreinput" [(ngModel)]="Nombre" required>
+              <input type="text" class="form-control" name="nombreinput" id="nombreinput" [(ngModel)]="aporte.Nombre" required>
             
           </div>
       </div>
       <div class="form-group row">
           <label for="estatus-select" class="col-sm-2 col-form-label">Fecha</label>
           <div class="col-sm-10">
-              <input type="date" class="form-control" name="fechainput" id="fechainput" [(ngModel)]="FechaCreacion" required>
+              <input type="date" class="form-control" name="fechainput" id="fechainput" [(ngModel)]="aporte.FechaCreacion" required>
           </div>
       </div>
       <div class="form-group row">
           <label for="estatus-select" class="col-sm-2 col-form-label">Nota</label>
           <div class="col-sm-10">
-              <textarea class="form-control" name="notatextarea" id="notatextarea" rows="3" [(ngModel)]="Nota" required></textarea>
+              <textarea class="form-control" name="notatextarea" id="notatextarea" rows="3" [(ngModel)]="aporte.Nota" required></textarea>
        
           </div>
       </div>
@@ -61,7 +61,7 @@
           <div class="botones"> 
           <div class="d-flex align-items-center justify-content-center h-100">
               <input type="button" style="margin:2px" class="btn btn-warning" (click)="limpiar(formAporte)" value="Nuevo">
-              <input type="button" style="margin:2px" class="btn btn-primary"  (click)="addAportes(formAporte)" value="Guardar">
+              <input type="button" style="margin:2px" class="btn btn-primary" [disabled]="!formAporte.valid"  (click)="addAportes(formAporte)" value="Guardar">
             
               <input type="button" style="margin:2px" class="btn btn-danger" value="Eliminar">
           </div>

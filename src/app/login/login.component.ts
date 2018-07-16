@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   constructor(private router:Router, private vecino:VecinoService) { }
 
   vecinosArray:Vecino;
-  vecinosFilter:Array<Vecino>=[];
+  vecinosFilter:Vecino;
   vecinosClave:Array<Vecino>=[];
   InputEmail:string='';
   Password:string='';
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     this.vecino.getVecinoEmail(this.InputEmail).subscribe(email=>{
       this.vecinosArray=email;
       console.log(this.vecinosArray);
-
+      
     });
   }
 

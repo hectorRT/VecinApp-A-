@@ -3,6 +3,8 @@ import {Aportes} from '../../Clases/Aportes';
 import { Aporteservice } from './../../Servicios/Aportes-Service/aporte.service';
 import { VecinoService } from './../../Servicios/Vecino-Service/vecino.service';
 import {Vecino} from '../../Clases/Vecino';
+import {Route} from '@angular/router';
+
 
 @Component({
   selector: 'app-registro-aportes',
@@ -26,20 +28,25 @@ export class RegistroAportesComponent implements OnInit {
   ngOnInit() {
 
     this.aporte= new Aportes();
-    this.buscarAporte();
     this.getVecinos();
     this.vecino= new Vecino();
   
   }
 
 
-
   addAportes(data) {
 
-    this.aporte.FechaCreacion = data.value.fechainput;
-    this.aporte.IdVecino = data.value.idVecinoinput;
-    this.aporte.Nombre = data.value.nombreinput;
-    this.aporte.Nota = data.value.notatextarea;
+    // this.aporte.FechaCreacion = data.value.fechainput;
+    // this.aporte.IdVecino = data.value.idVecinoinput;
+    // this.aporte.Nombre = data.value.nombreinput;
+    // this.aporte.Nota = data.value.notatextarea;
+
+    console.log(JSON.stringify(this.aporte));
+
+    this.AporteServicio.addAportes(this.aporte).subscribe(res=>{
+      console.log(res);
+  
+    });
   
  
     alert("Registrado");
