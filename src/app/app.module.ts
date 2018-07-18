@@ -29,10 +29,6 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthguardGuard } from './authguard.guard';
 import { UserService } from './user.service'
-import { RegistroCuotasComponent } from './registro-cuotas/registro-cuotas.component';
-import { RegistroPagocuotaComponent } from './registro-pagocuota/registro-pagocuota.component';
-import { RegistroGastosComponent } from './registro-gastos/registro-gastos.component';
-import { RegistroSuplidorComponent } from './registro-suplidor/registro-suplidor.component';
 
 const appRoutes:Routes = [
   {
@@ -48,30 +44,31 @@ const appRoutes:Routes = [
 
 
 @NgModule({
-   declarations: [
-      AppComponent,
-      BlogDiscusionesComponent,
-      RegistroVecinoComponent,
-      RegistroAportesComponent,
-      MenuPrincipalComponent,
-      ConsultaDiscusionesComponent,
-      SolicitudesComponent,
-      DiscusionRegistroComponent,
-      RegistroVecindariosComponent,
-      LoginComponent,
-      RegistroCuotasComponent,
-      RegistroPagocuotaComponent,
-      RegistroGastosComponent,
-      RegistroSuplidorComponent
-   ],
-   imports: [
-      BrowserModule,
-      FormsModule,
-      HttpClientModule,
-      APP_ROUTING,
-      RouterModule.forRoot([\\\\\\\\r\\\\\\\\n{path
-   ]
-}),
+  declarations: [AppComponent, 
+    BlogDiscusionesComponent,
+    RegistroVecinoComponent,
+    RegistroAportesComponent,
+    MenuPrincipalComponent,
+    ConsultaDiscusionesComponent,
+    SolicitudesComponent,
+    DiscusionRegistroComponent,
+    RegistroVecindariosComponent,
+    LoginComponent,],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    APP_ROUTING,
+    RouterModule.forRoot([
+      { path: 'discusiones', component: ConsultaDiscusionesComponent},
+      { path: 'aportes', component: RegistroAportesComponent},
+      { path: 'discusiones/:id', component: BlogDiscusionesComponent },
+      { path: 'rDiscusiones', component: DiscusionRegistroComponent},
+      { path: 'rDiscusiones/:id', component: DiscusionRegistroComponent},      
+      { path: 'vecinos', component:RegistroVecinoComponent},
+      { path: 'solicitudes', component:SolicitudesComponent},
+      { path: 'login', component:LoginComponent},
+    ]),
   RouterModule.forRoot(appRoutes),
   BrowserModule
   ],
