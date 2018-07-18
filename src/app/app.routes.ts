@@ -1,25 +1,18 @@
-//import { RegistroVecindariosComponent } from './registro-vecindarios/registro-vecindarios.component';
-import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
-import { RegistroVecinoComponent} from './registro-vecino/registro-vecino.component';
-// import { Name3Component } from './';
-// import { Name4Component } from './';
-//import { PageNotFoundComponent } from './';
+import { AuthGuard } from './auth/auth.guard';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
-const ROUTES: Routes = [
-    //{ path: 'Home', component: MenuPrincipalComponent },
-    //{ path: 'Crear-vecinos', component: RegistroVecinoComponent },
-    //{ path: '**', pathMatch: 'full', redirectTo: 'Home' }
-    // { path: 'path4', component: Name4Component },
-    // { path: '**', component: PageNotFoundComponent },
-
-    //{ path: 'path/:routeParam', component: MyComponent },
-    //{ path: 'staticPath', component: ... },
-    //{ path: '**', component: ... },
-    //{ path: 'oldPath', redirectTo: '/staticPath' },
-    //{ path: ..., component: ..., data: { message: 'Custom' }
+const routes: Routes = [
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: '**', redirectTo: ''}
 ];
 
-export const APP_ROUTING = RouterModule.forRoot(ROUTES);
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

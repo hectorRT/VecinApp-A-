@@ -1,3 +1,4 @@
+import { AuthService } from './auth/auth.service';
 import { SolicitudService } from './../Servicios/Solicitudes-Service/solicitudes.service';
 
 import { BlogDiscusionesComponent } from './blog-discusiones/blog-discusiones.component';
@@ -19,7 +20,7 @@ import { RegistroAportesComponent } from './registro-aportes/registro-aportes.co
 import { Aporteservice } from '../Servicios/Aportes-Service/aporte.service';
 
 // Rutas
-import {APP_ROUTING} from './app.routes';
+import {AppRoutingModule} from './app.routes';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -27,8 +28,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthguardGuard } from './authguard.guard';
-import { UserService } from './user.service'
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { AppMaterialModule } from './app-material/app-material.module';
+import { AuthGuard } from './auth/auth.guard';
+import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
+import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
+
 
 const appRoutes:Routes = [
   {
@@ -45,6 +54,7 @@ const appRoutes:Routes = [
 
 @NgModule({
   declarations: [AppComponent, 
+    HeaderComponent,
     BlogDiscusionesComponent,
     RegistroVecinoComponent,
     RegistroAportesComponent,
@@ -53,12 +63,20 @@ const appRoutes:Routes = [
     SolicitudesComponent,
     DiscusionRegistroComponent,
     RegistroVecindariosComponent,
-    LoginComponent,],
+    LoginComponent,
+    HeaderComponent,
+    HomeComponent,
+    HomeLayoutComponent,
+    LoginLayoutComponent,
+  ],
   imports: [
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AppMaterialModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    APP_ROUTING,
+    AppRoutingModule,
     RouterModule.forRoot([
       { path: 'discusiones', component: ConsultaDiscusionesComponent},
       { path: 'aportes', component: RegistroAportesComponent},
@@ -68,11 +86,12 @@ const appRoutes:Routes = [
       { path: 'vecinos', component:RegistroVecinoComponent},
       { path: 'solicitudes', component:SolicitudesComponent},
       { path: 'login', component:LoginComponent},
+      { path: 'menu', component:MenuPrincipalComponent},
     ]),
   RouterModule.forRoot(appRoutes),
   BrowserModule
   ],
-  providers: [UserService, AuthguardGuard,ComentariosService, DiscusionesService,VecinoService,SolicitudService,Aporteservice],
+  providers: [AuthGuard ,AuthService ,ComentariosService, DiscusionesService,VecinoService,SolicitudService,Aporteservice],
   bootstrap: [AppComponent]
 })
 

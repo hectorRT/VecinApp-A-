@@ -1,0 +1,42 @@
+<mat-toolbar color="primary" *ngIf="isLoggedIn$ | async as isLoggedIn">
+  <header>
+    <div class="menu_bar">
+      <a href="#" class="bt-menu">
+        <span class="icon-th-menu"></span>Menu</a>
+    </div>
+    <nav>
+      <ul>
+        <li class="submenu">
+          <a href="#">
+            <span class="icon-user"></span>Vecinos
+            <span class="caret icon-arrow-down-thick"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon-home"></span>Discusion</a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon-home"></span>Aportes</a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon-bitcoin"></span>Pagos Cuotas </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon-home"></span>Eventos</a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon-home"></span>Gastos</a>
+        </li>
+        <li>
+          <a href="onLogout()">
+            <span class="icon-home"></span>Logout</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</mat-toolbar>

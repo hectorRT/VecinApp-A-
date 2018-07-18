@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import {UserService} from '../user.service';
-import { VecinoService } from '../../Servicios/Vecino-Service/vecino.service';
-import { Vecino } from '../../Clases/Vecino';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { AuthService } from './../auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +9,10 @@ import { Vecino } from '../../Clases/Vecino';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  form: FormGroup;
+  private formSubmitAttempt: boolean;
 
+<<<<<<< HEAD
   constructor(private router: Router, private vecino: VecinoService) { }
 
 <<<<<<< HEAD
@@ -53,5 +55,31 @@ export class LoginComponent implements OnInit {
   }
 
 
+=======
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService
+  ) {}
 
+  ngOnInit() {
+    this.form = this.fb.group({
+      userName: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+
+  isFieldInvalid(field: string) {
+    return (
+      (!this.form.get(field).valid && this.form.get(field).touched) ||
+      (this.form.get(field).untouched && this.formSubmitAttempt)
+    );
+  }
+>>>>>>> 1cabd71243343faa5da3b11351564319ee7bf778
+
+  onSubmit() {
+    if (this.form.valid) {
+      this.authService.login(this.form.value);
+    }
+    this.formSubmitAttempt = true;
+  }
 }
