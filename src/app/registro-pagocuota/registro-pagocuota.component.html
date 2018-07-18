@@ -1,0 +1,76 @@
+<!--header-->
+<header>
+
+  <div class="container">
+      <div class="row justify-content-md-center">
+              <div>
+                      <h1>{{titulo}}</h1>
+              </div>
+             
+      </div>
+
+  </div>
+</header>
+<hr>
+
+<!--contenido-->
+
+<div class="container text-md-right">
+      <form class="row">
+          <div class="col-sm-12 offset-md-2 col-md-8 offset-lg-3 col-lg-6">
+            <!--Id Pago-->
+              <div class="form-group row">
+                  <label for="IdPago-input" class="col-sm-2 col-form-label">Id Pago</label>
+                  <div class="col-sm-10">
+                      <input type="text" name="IdPagoInput" class="form-control" id="IdPago-input" placeholder="IdPago" [(ngModel)]="IdPago" required>
+                  </div>
+              
+              </div>
+              <!--Id Vecino-->
+              <div class="form-group row">
+                  <label for="IdVecino-input" class="col-sm-2 col-form-label">Vecino</label>
+                  <div class="col-sm-10">
+                      <input type="select" name="IdVecinoInput" class="form-control" id="IdVecino-input" placeholder="IdVecino" [(ngModel)]="IdVecino" required>
+                  </div>
+              </div>
+
+              <!--Id Cuota-->
+              <div class="form-group row">
+                  <label for="IdCuota-input" class="col-sm-2 col-form-label">Cuota</label>
+                  <div class="col-sm-10">
+                      <input type="select" name="IdCuota" class="form-control" id="IdCuota-input" placeholder="IdCuota" [(ngModel)]="IdCuota" required>
+                  </div>
+              </div>
+
+              <!--Monto-->
+              <div class="form-group row">
+                <label for="Monto-input" class="col-sm-2 col-form-label">Monto</label>
+                <div class="col-sm-10">
+                    <input type="text" name="Monto" class="form-control" id="Monto-input" placeholder="Monto" [(ngModel)]="Monto" required>
+                </div>
+              </div>
+
+              <!--Fecha-->
+              <div class="form-group row">
+                <label for="Fecha-input" class="col-sm-2 col-form-label">Fecha</label>
+                <div class="col-sm-10">
+                    <input type="Date" name="Fecha" class="form-control" id="Fecha-input" placeholder="Fecha" [(ngModel)]="Fecha" required>
+                </div>
+              </div>
+
+              <!-- botónes -->
+              <div class="col">
+                  <div class="botones"> 
+                  <div class="d-flex align-items-center justify-content-center h-100">
+                      <input type="button" style="margin:2px" class="btn btn-default" value="Nuevo" (click)="limpiar(formVecino)">
+                      <button type="button" style="margin:2px" class="btn btn-primary" (click)="addVecino(formVecino)" >Guardar</button>
+                      <input type="button" style="margin:2px" class="btn btn-warning" value="Cancelar">
+                      <button type="button" style="margin:2px" class="btn btn-danger" value="Buscar" (click)="filtrar()">Buscar</button>
+                  </div>
+              </div>
+              </div>
+
+
+          </div>
+      </form>
+  </div>

@@ -13,11 +13,19 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private vecino: VecinoService) { }
 
+<<<<<<< HEAD
   vecinosArray: Vecino;
   vecinosFilter: Array<Vecino> = [];
   vecinosClave: Array<Vecino> = [];
   InputEmail: string ='';
   Password: string ='';
+=======
+  vecinosArray:Vecino;
+  vecinosFilter:Vecino;
+  vecinosClave:Array<Vecino>=[];
+  InputEmail:string='';
+  Password:string='';
+>>>>>>> ab95ec40a006e5291b2ec4bf5df31f7503194ebb
 
   ngOnInit() {
   }
@@ -40,7 +48,7 @@ export class LoginComponent implements OnInit {
     this.vecino.getVecinoEmail(this.InputEmail).subscribe(email => {
       this.vecinosArray = email;
       console.log(this.vecinosArray);
-
+      
     });
   }
 

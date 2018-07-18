@@ -1,0 +1,84 @@
+<!--header-->
+<header>
+
+  <div class="container">
+      <div class="row justify-content-md-center">
+              <div>
+                      <h1>{{titulo}}</h1>
+              </div>
+             
+      </div>
+
+  </div>
+</header>
+<hr>
+
+<!--contenido-->
+
+<div class="container text-md-right">
+      <form class="row">
+          <div class="col-sm-12 offset-md-2 col-md-8 offset-lg-3 col-lg-6">
+            <!--Id Suplidor-->
+              <div class="form-group row">
+                  <label for="IdSuplidor-input" class="col-sm-2 col-form-label">Id Suplidor</label>
+                  <div class="col-sm-10">
+                      <input type="text" name="IdSuplidorInput" class="form-control" id="IdSuplidor-input" placeholder="IdSuplidor" [(ngModel)]="IdSuplidor" required>
+                  </div>
+              
+              </div>
+              <!--Nombre-->
+              <div class="form-group row">
+                  <label for="Nombre-input" class="col-sm-2 col-form-label">Nombre</label>
+                  <div class="col-sm-10">
+                      <input type="text" name="NombreInput" class="form-control" id="Nombre-input" placeholder="Nombre" [(ngModel)]="Nombre" required>
+                  </div>
+              </div>
+
+              <!--Telefono-->
+              <div class="form-group row">
+                  <label for="Telefono-input" class="col-sm-2 col-form-label">Telefono</label>
+                  <div class="col-sm-10">
+                      <input type="text" name="Telefono" class="form-control" id="Telefono-input" placeholder="Telefono" [(ngModel)]="Telefono" required>
+                  </div>
+              </div>
+
+              <!--Direccion-->
+              <div class="form-group row">
+                <label for="Direccion-input" class="col-sm-2 col-form-label">Direccion</label>
+                <div class="col-sm-10">
+                    <input type="text" name="Direccion" class="form-control" id="Direccion-input" placeholder="Direccion" [(ngModel)]="Direccion" required>
+                </div>
+              </div>
+
+              <!--Representante-->
+              <div class="form-group row">
+                <label for="Representante-input" class="col-sm-2 col-form-label">Representante</label>
+                <div class="col-sm-10">
+                    <input type="text" name="Representante" class="form-control" id="Representante-input" placeholder="Representante" [(ngModel)]="Representante" required>
+                </div>
+              </div>
+
+              <!--Tel Representante-->
+              <div class="form-group row">
+                <label for="Representante-input" class="col-sm-2 col-form-label">Representante</label>
+                <div class="col-sm-10">
+                    <input type="text" name="Representante" class="form-control" id="Representante-input" placeholder="Representante" [(ngModel)]="Representante" required>
+                </div>
+              </div>
+              
+              <!-- botónes -->
+              <div class="col">
+                  <div class="botones"> 
+                  <div class="d-flex align-items-center justify-content-center h-100">
+                      <input type="button" style="margin:2px" class="btn btn-default" value="Nuevo" (click)="limpiar(formVecino)">
+                      <button type="button" style="margin:2px" class="btn btn-primary" (click)="addVecino(formVecino)" >Guardar</button>
+                      <input type="button" style="margin:2px" class="btn btn-warning" value="Cancelar">
+                      <button type="button" style="margin:2px" class="btn btn-danger" value="Buscar" (click)="filtrar()">Buscar</button>
+                  </div>
+              </div>
+              </div>
+
+
+          </div>
+      </form>
+  </div>
