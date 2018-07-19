@@ -37,6 +37,7 @@ import { AppMaterialModule } from './app-material/app-material.module';
 import { AuthGuard } from './auth/auth.guard';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
+import { ConsultaVecinosComponent } from './consulta-vecinos/consulta-vecinos.component';
 
 
 const appRoutes:Routes = [
@@ -68,6 +69,7 @@ const appRoutes:Routes = [
     HomeComponent,
     HomeLayoutComponent,
     LoginLayoutComponent,
+    ConsultaVecinosComponent,
   ],
   imports: [
     ReactiveFormsModule,
