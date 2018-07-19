@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 :host {
 	flex-grow: 1;
 	display: flex;
@@ -29,34 +29,4 @@ div.input {
 	margin-top: 20px;
 }
 
-=======
-md-card {
-    max-width: 400px;
-    margin: 2em auto;
-    text-align: center;
-  }
-  .signin-content {
-    padding: 60px 1rem;
-  }
-  .full-width-input {
-    width: 100%;
-  }
-  
-  .login{
-    max-width: 400;
-    margin-top: 15%;
-    margin-left: 35%;
-    
-  }
 
-  .boton{
-    margin-top: 15%;
-    margin-left: 35%;
-    color:white;
-    background:green
-  }
-
-  .full-width-input{
-    margin-top: 3%;
-  }
->>>>>>> 66a65f5ac05ebea7c92f95955ba57e24b5ee1208
