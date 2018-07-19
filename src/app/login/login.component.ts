@@ -1,40 +1,52 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { AuthService } from './../auth/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/map'
+import { BehaviorSubject } from 'rxjs';
+import { AlertService, AuthenticationService } from '../_services/index';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    templateUrl: 'login.component.html'
 })
+
 export class LoginComponent implements OnInit {
-  form: FormGroup;
-  private formSubmitAttempt: boolean;
+    model: any = {};
+    loading = false;
+    returnUrl: string;
 
-  constructor(
-    private fb: FormBuilder,
-    private authService: AuthService
-  ) {}
+    constructor(
+        private route: ActivatedRoute,
+        private router: Router,
+        private authenticationService: AuthenticationService,
+        private alertService: AlertService) { }
 
-  ngOnInit() {
-    this.form = this.fb.group({
-      userName: ['', Validators.required],
-      password: ['', Validators.required]
-    });
-  }
+    ngOnInit() {
+        // reset login status
+        this.authenticationService.logout();
 
-  isFieldInvalid(field: string) {
-    return (
-      (!this.form.get(field).valid && this.form.get(field).touched) ||
-      (this.form.get(field).untouched && this.formSubmitAttempt)
-    );
-  }
-
-  onSubmit() {
-    if (this.form.valid) {
-      this.authService.login(this.form.value);
+        // get return url from route parameters or default to '/'
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
-    this.formSubmitAttempt = true;
-  }
+    private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+    get isLoggedIn() {
+        this.loggedIn.next(true);
+      return this.loggedIn.asObservable();
+    }
+
+    login() {
+        this.loading = true;
+        // this.authenticationService.login(this.model.username, this.model.password)
+        //     .subscribe(
+        //         data => {
+            localStorage.setItem('currentUser', JSON.stringify("admin"));
+                    this.router.navigate([this.returnUrl]);
+
+                    this.authenticationService.cargartrue();
+
+                // },
+                // error => {
+                //     this.alertService.error(error);
+                //     this.loading = false;
+                // });
+    }
 }

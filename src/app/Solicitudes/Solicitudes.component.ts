@@ -1,6 +1,7 @@
 import { SolicitudService } from './../../Servicios/Solicitudes-Service/solicitudes.service';
-
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {Solicitud} from '../../Clases/Solicitudes';
 
 @Component({
@@ -9,31 +10,23 @@ import {Solicitud} from '../../Clases/Solicitudes';
   styleUrls: ['./Solicitudes.component.css']
 })
 export class SolicitudesComponent implements OnInit {
-  solicitud:Solicitud;
-  //arreglos
-  SolicitudArray: Array<Solicitud>=[];
-  SolicitudFilter: Array<Solicitud>=[];
-  tema:string='';
+  
+  isLoggedIn$: Observable<boolean>;
 
-
-  constructor(private SolicitudServicio: SolicitudService) { }
-
+  constructor(private SolicitudServicio: SolicitudService) { 
+    // this.isLoggedIn$ = this.authService.isLoggedIn;
+  }
   ngOnInit() {
-
+    // this.isLoggedIn$ = this.authService.isLoggedIn;
     this.solicitud= new Solicitud();
     this.buscarSolicitud();
   }
-
-
- /* getVecinos()
-  {
-    this.vecinoServicio.getVecinos().subscribe(res=>{
-      console.log(res);
-    });
-  }
-*/
-
-
+  //#region 
+  solicitud:Solicitud;
+  SolicitudArray: Array<Solicitud>=[];
+  SolicitudFilter: Array<Solicitud>=[];
+  tema:string='';
+  
   addSolicitudes(data) {
 
     this.solicitud.fecha = data.value.fechaInput;
@@ -48,7 +41,6 @@ export class SolicitudesComponent implements OnInit {
     this.limpiar(data);
 
   }
-
   getVecino(id:number) {
    var data;
    this.SolicitudServicio.getSolicitude(id).subscribe(res => {
@@ -71,14 +63,12 @@ export class SolicitudesComponent implements OnInit {
 
     });
   }
-
   filtrar()
   {
     this.SolicitudFilter = this.SolicitudArray.filter((veci:Solicitud)=>veci.tema.includes(this.tema));
     console.log(this.SolicitudFilter);
 
   }
-
   limpiar(data)
   {
     data.value.id='';'';

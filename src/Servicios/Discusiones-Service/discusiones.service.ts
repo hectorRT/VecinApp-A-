@@ -25,8 +25,6 @@ export class DiscusionesService{
 
       return this.http.get<EstadoDiscusion[]>(this.estadosDiscusionesURL)
         .pipe(
-          tap(estados => this.log('fetched estados discusiones')),
-          catchError(this.handleError('getEstados', []))
         );
         
     }
@@ -35,8 +33,6 @@ export class DiscusionesService{
 
       return this.http.get<Discusion[]>(this.discusionesUrl)
         .pipe(
-          tap(heroes => this.log(`fetched Discusiones`)),
-          catchError(this.handleError('getDiscusiones', []))
       );
     }
     
@@ -44,8 +40,6 @@ export class DiscusionesService{
 
         const url = `${this.discusionesUrl}/${id}`;
         return this.http.get<Discusion>(url).pipe(
-          tap(_ => this.log(`fetched discusion id=${id}`)),
-          catchError(this.handleError<Discusion>(`getDiscusion id=${id}`))
         );
 
       }
@@ -53,8 +47,6 @@ export class DiscusionesService{
       addDiscusion (discusion: Discusion): Observable<any> {
 
         return this.http.post<any>(this.discusionesUrl, discusion, httpOptions).pipe(
-          tap((discusion: any) => this.log(`added Discusion w/ id=${discusion.data.insertId}`)),
-          catchError(this.handleError<Discusion>('addDiscusion'))
         );
 
       }
@@ -64,8 +56,6 @@ export class DiscusionesService{
         const url = `${this.discusionesUrl}/${id}`;
     
         return this.http.delete<null>(url, httpOptions).pipe(
-          tap(_ => this.log(`deleted discusion id=${id}`)),
-          catchError(this.handleError<null>('deleteDiscusion'))
         );
 
       }
