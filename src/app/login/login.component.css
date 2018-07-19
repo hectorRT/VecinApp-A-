@@ -10,3 +10,20 @@ md-card {
     width: 100%;
   }
   
+  .login{
+    max-width: 400;
+    margin-top: 15%;
+    margin-left: 35%;
+    
+  }
+
+  .boton{
+    margin-top: 15%;
+    margin-left: 35%;
+    color:white;
+    background:green
+  }
+
+  .full-width-input{
+    margin-top: 3%;
+  }
