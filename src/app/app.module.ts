@@ -31,6 +31,7 @@ import { AlertService } from './_services/alert.service';
 import { UserService } from './_services/user.service';
 import { AppMaterialModule } from './AppMaterial/AppMaterialModule';
 
+<<<<<<< HEAD
 const appRoutes: Routes = [
   { path: 'menu', component: MenuPrincipalComponent },
   { path: 'solicitudes', component: SolicitudesComponent },
@@ -42,6 +43,25 @@ const appRoutes: Routes = [
   { path: 'vecinos', component: RegistroVecinoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'menu', component: MenuPrincipalComponent } 
+=======
+import { AppMaterialModule } from './app-material/app-material.module';
+import { AuthGuard } from './auth/auth.guard';
+import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
+import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
+import { ConsultaVecinosComponent } from './consulta-vecinos/consulta-vecinos.component';
+
+
+const appRoutes:Routes = [
+  {
+    path: 'menu',
+    component: MenuPrincipalComponent
+  },
+  //  {
+  //    path: 'solicitudes',
+  //    canActivate: [AuthguardGuard],
+  //    component: SolicitudesComponent
+  //  }
+>>>>>>> 66a65f5ac05ebea7c92f95955ba57e24b5ee1208
 ]
 
 @NgModule({
@@ -58,6 +78,12 @@ const appRoutes: Routes = [
     LoginComponent,
     HeaderComponent,
     HomeComponent,
+<<<<<<< HEAD
+=======
+    HomeLayoutComponent,
+    LoginLayoutComponent,
+    ConsultaVecinosComponent,
+>>>>>>> 66a65f5ac05ebea7c92f95955ba57e24b5ee1208
   ],
   imports: [
     ReactiveFormsModule,
