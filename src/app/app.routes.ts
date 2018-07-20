@@ -33,7 +33,7 @@ const appRoutes: Routes = [
   { path: 'menu', component: MenuPrincipalComponent , canActivate: [AuthGuard]} ,
   { path: 'suplidores', component: RegistroSuplidorComponent , canActivate: [AuthGuard]} ,
   { path: 'evento', component: RegistroEventosComponent , canActivate: [AuthGuard]} ,
-  { path: 'pagoscuota', component: RegistroCuotasComponent , canActivate: [AuthGuard]} ,
+  { path: 'cuota', component: RegistroCuotasComponent , canActivate: [AuthGuard]} ,
   { path: 'consultavecinos', component: ConsultaVecinosComponent , canActivate: [AuthGuard]} ,
   { path: 'blogdiscusiones', component: BlogDiscusionesComponent , canActivate: [AuthGuard]} ,
   { path: 'gastos', component: RegistroGastosComponent , canActivate: [AuthGuard]} ,
