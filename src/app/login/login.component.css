@@ -1,3 +1,24 @@
+<<<<<<< HEAD
+md-card {
+    max-width: 400px;
+    margin: 2em auto;
+    text-align: center;
+  }
+  .signin-content {
+    padding: 60px 1rem;
+  }
+  .full-width-input {
+    width: 100%;
+  }
+  
+  /*.login{
+    max-width: 400;
+    margin-top: 5%;
+    margin-left: 35%;
+    
+  }
+=======
+>>>>>>> bdec96e1b0c155feeaf66bea39525bfe96b30766
 
 :host {
 	flex-grow: 1;
@@ -30,3 +51,13 @@ div.input {
 }
 
 
+<<<<<<< HEAD
+  .full-width-input{
+    margin-top: 3%;
+  }
+
+  h1{
+    margin-top: 4%;
+  }*/
+=======
+>>>>>>> bdec96e1b0c155feeaf66bea39525bfe96b30766
