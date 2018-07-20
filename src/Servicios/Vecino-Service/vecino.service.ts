@@ -17,6 +17,7 @@ export class VecinoService {
 
   private VecinoUrl="http://localhost:3000/vecinos";
   private VecinoEmailUrl="http://localhost:3000/Vecinos/Email";
+  private ConsultaVecinoUrl="http://localhost:3000/Vecinos/Consulta";
   constructor(private http:  HttpClient) { }
 
   getVecinos(): Observable<Vecino[]> {
@@ -59,6 +60,17 @@ export class VecinoService {
       catchError(this.handleError<Vecino>(`getVecino email=${email}`))
     );
   }
+
+
+  getVecinoNombre(nombre: string): Observable<Vecino> {
+    const url = `${this.ConsultaVecinoUrl}/${nombre}`;
+
+    return this.http.get<Vecino>(url).pipe(
+      tap(_ => this.log(`fetched hero nombres=${nombre}`)),
+      catchError(this.handleError<Vecino>(`getVecino email=${nombre}`))
+    );
+  }
+
 
 
   addVecino (vecino: Vecino): Observable<any> {
