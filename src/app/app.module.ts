@@ -1,3 +1,6 @@
+import { RegistroPagocuotaComponent } from './registro-pagocuota/registro-pagocuota.component';
+import { RegistroGastosComponent } from './registro-gastos/registro-gastos.component';
+import { Cargo } from './../Clases/Cargo';
 import { FrecuenciaPagoService } from './../Servicios/Frecuencia/frecuencia-pago.service';
 import { EventoService } from './../Servicios/Evento/evento.service';
 //Servicios
@@ -63,18 +66,21 @@ const appRoutes: Routes = [
   declarations: [AppComponent,
     HeaderComponent,
     BlogDiscusionesComponent,
-    RegistroVecinoComponent,
     RegistroAportesComponent,
     MenuPrincipalComponent,
     ConsultaDiscusionesComponent,
     SolicitudesComponent,
-    DiscusionRegistroComponent,
-    RegistroVecindariosComponent,
     LoginComponent,
-    HeaderComponent,
     HomeComponent,
     RegistroSuplidorComponent,
-    RegistroEventosComponent,RegistroCuotasComponent,ConsultaVecinosComponent
+    RegistroEventosComponent,
+    ConsultaVecinosComponent,
+    DiscusionRegistroComponent,
+    RegistroCuotasComponent,
+    RegistroGastosComponent,
+    RegistroPagocuotaComponent,
+    RegistroVecindariosComponent,
+    RegistroVecinoComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -89,7 +95,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserModule
   ],
-  providers: [FrecuenciaPagoService,EventoService ,SuplidorService,UserService,AlertService,AuthenticationService,AuthGuard,ComentariosService, DiscusionesService, VecinoService, SolicitudService, Aporteservice],
+  providers: [Aporteservice,ComentariosService,DiscusionesService,VecinoService,FrecuenciaPagoService,EventoService ,SuplidorService,UserService,AlertService,AuthenticationService,AuthGuard,ComentariosService, DiscusionesService, VecinoService, SolicitudService, Aporteservice],
   bootstrap: [AppComponent]
 })
 

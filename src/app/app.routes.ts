@@ -1,3 +1,4 @@
+import { RegistroPagocuotaComponent } from './registro-pagocuota/registro-pagocuota.component';
 import { RegistroEventosComponent } from './registro-eventos/registro-eventos.component';
 import { RegistroVecindariosComponent } from './registro-vecindarios/registro-vecindarios.component';
 import { DiscusionRegistroComponent } from './discusion-registro/discusion-registro.component';
@@ -14,6 +15,8 @@ import { RegistroAportesComponent } from './registro-aportes/registro-aportes.co
 import { RegistroSuplidorComponent } from './registro-suplidor/registro-suplidor.component';
 import { RegistroCuotasComponent } from './registro-cuotas/registro-cuotas.component';
 import { ConsultaVecinosComponent } from './consulta-vecinos/consulta-vecinos.component';
+import { RegistroGastosComponent } from './registro-gastos/registro-gastos.component';
+import { RegistroVecinoComponent } from './registro-vecino/registro-vecino.component';
 
 const appRoutes: Routes = [
   { path: 'solicitudes', component: SolicitudesComponent, canActivate: [AuthGuard] },
@@ -26,12 +29,16 @@ const appRoutes: Routes = [
   { path: 'discusiones/:id', component: BlogDiscusionesComponent , canActivate: [AuthGuard]},
   { path: 'rDiscusiones', component: DiscusionRegistroComponent , canActivate: [AuthGuard]},
   { path: 'rDiscusiones/:id', component: DiscusionRegistroComponent , canActivate: [AuthGuard]},
-  { path: 'vecinos', component: RegistroVecindariosComponent , canActivate: [AuthGuard]},
+  { path: 'vecindario', component: RegistroVecindariosComponent , canActivate: [AuthGuard]},
   { path: 'menu', component: MenuPrincipalComponent , canActivate: [AuthGuard]} ,
   { path: 'suplidores', component: RegistroSuplidorComponent , canActivate: [AuthGuard]} ,
   { path: 'evento', component: RegistroEventosComponent , canActivate: [AuthGuard]} ,
   { path: 'pagoscuota', component: RegistroCuotasComponent , canActivate: [AuthGuard]} ,
   { path: 'consultavecinos', component: ConsultaVecinosComponent , canActivate: [AuthGuard]} ,
+  { path: 'blogdiscusiones', component: BlogDiscusionesComponent , canActivate: [AuthGuard]} ,
+  { path: 'gastos', component: RegistroGastosComponent , canActivate: [AuthGuard]} ,
+  { path: 'pagocuotas', component: RegistroPagocuotaComponent , canActivate: [AuthGuard]} ,
+  { path: 'registrovecino', component: RegistroVecinoComponent , canActivate: [AuthGuard]} ,
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];
