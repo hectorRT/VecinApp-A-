@@ -31,7 +31,7 @@ export class RegistroSuplidorComponent implements OnInit {
       });
   
       alert("Registrado");
-  
+      this.limpiar(data);
   }
 
   limpiar(data)

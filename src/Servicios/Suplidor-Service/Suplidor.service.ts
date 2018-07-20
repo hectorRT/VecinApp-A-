@@ -22,8 +22,8 @@ export class SuplidorService {
 
     return this.http.get<Suplidor[]>(this.SuplidorUrl)
       .pipe(
-        tap(heroes => this.log('fetched Suplidores')),
-        catchError(this.handleError('getSuplidores', []))
+        tap(heroes => this.log('fetched Suplidor')),
+        catchError(this.handleError('getSuplidor', []))
       );
   }
 

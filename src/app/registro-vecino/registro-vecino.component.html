@@ -106,7 +106,7 @@
                   <div class="botones"> 
                   <div class="d-flex align-items-center justify-content-center h-100">
                       <input type="button" style="margin:2px" class="btn btn-default" value="Nuevo" (click)="limpiar(formVecino)">
-                      <input type="button" style="margin:2px" class="btn btn-primary" [disabled]="!formVecino.valid" (click)="addVecino(formVecino)" value="Guardar">
+                      <input type="button" style="margin:2px" class="btn btn-primary" (click)="addVecino(formVecino)" value="Guardar">
                       <input type="button" style="margin:2px" class="btn btn-warning" value="Cancelar">
                       
                   </div>
