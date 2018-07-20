@@ -1,6 +1,20 @@
-import { RegistroSuplidorComponent } from './registro-suplidor/registro-suplidor.component';
-
+import { FrecuenciaPagoService } from './../Servicios/Frecuencia/frecuencia-pago.service';
+import { EventoService } from './../Servicios/Evento/evento.service';
+//Servicios
 import { SolicitudService } from './../Servicios/Solicitudes-Service/solicitudes.service';
+import { DiscusionesService } from '../Servicios/Discusiones-Service/discusiones.service';
+import { ComentariosService } from "../Servicios/Comentarios.Service/comentarios.service";
+import { VecinoService } from '../Servicios/Vecino-Service/vecino.service';
+import { Aporteservice } from '../Servicios/Aportes-Service/aporte.service';
+import { AlertService } from './_services/alert.service';
+import { UserService } from './_services/user.service';
+import { AppMaterialModule } from './AppMaterial/AppMaterialModule';
+import { AuthenticationService } from './_services/authentication.service';
+import { AuthGuard } from './_guards/index';
+import { SuplidorService } from '../Servicios/Suplidor-Service/Suplidor.service';
+
+//Componentes
+import { RegistroSuplidorComponent } from './registro-suplidor/registro-suplidor.component';
 import { BlogDiscusionesComponent } from './blog-discusiones/blog-discusiones.component';
 import { RegistroVecinoComponent } from './registro-vecino/registro-vecino.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
@@ -8,29 +22,24 @@ import { ConsultaDiscusionesComponent } from './consulta-discusiones/consulta-di
 import { SolicitudesComponent } from './Solicitudes/Solicitudes.component';
 import { DiscusionRegistroComponent } from './discusion-registro/discusion-registro.component';
 import { RegistroVecindariosComponent } from './registro-vecindarios/registro-vecindarios.component';
-import { HttpClientModule } from '@angular/common/http';
-import { DiscusionesService } from '../Servicios/Discusiones-Service/discusiones.service';
-import { ComentariosService } from "../Servicios/Comentarios.Service/comentarios.service";
-import { VecinoService } from '../Servicios/Vecino-Service/vecino.service';
+import { HeaderComponent } from './header/header.component';
 import { RegistroAportesComponent } from './registro-aportes/registro-aportes.component';
-import { Aporteservice } from '../Servicios/Aportes-Service/aporte.service';
-// Rutas
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+
+//Complementos
+import { HttpClientModule } from '@angular/common/http';
 import { routing } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthGuard } from './_guards/index';
-import { AuthenticationService } from './_services/authentication.service';
-import { AlertService } from './_services/alert.service';
-import { UserService } from './_services/user.service';
-import { AppMaterialModule } from './AppMaterial/AppMaterialModule';
+import { RegistroEventosComponent } from './registro-eventos/registro-eventos.component';
+import { RegistroCuotasComponent } from './registro-cuotas/registro-cuotas.component';
+
 
 const appRoutes: Routes = [
   { path: 'menu', component: MenuPrincipalComponent },
@@ -43,8 +52,9 @@ const appRoutes: Routes = [
   { path: 'vecinos', component: RegistroVecinoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'menu', component: MenuPrincipalComponent } ,
-  { path: 'suplidores', component: RegistroSuplidorComponent } 
-
+  { path: 'suplidores', component: RegistroSuplidorComponent } ,
+  { path: 'eventos', component: RegistroEventosComponent },
+  { path: 'pagoscuota', component: RegistroCuotasComponent } 
 ]
 
 @NgModule({
@@ -61,7 +71,8 @@ const appRoutes: Routes = [
     LoginComponent,
     HeaderComponent,
     HomeComponent,
-    RegistroSuplidorComponent
+    RegistroSuplidorComponent,
+    RegistroEventosComponent,RegistroCuotasComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -76,7 +87,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserModule
   ],
-  providers: [UserService,AlertService,AuthenticationService,AuthGuard,ComentariosService, DiscusionesService, VecinoService, SolicitudService, Aporteservice],
+  providers: [FrecuenciaPagoService,EventoService ,SuplidorService,UserService,AlertService,AuthenticationService,AuthGuard,ComentariosService, DiscusionesService, VecinoService, SolicitudService, Aporteservice],
   bootstrap: [AppComponent]
 })
 

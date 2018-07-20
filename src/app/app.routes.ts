@@ -1,3 +1,4 @@
+import { RegistroEventosComponent } from './registro-eventos/registro-eventos.component';
 import { RegistroVecindariosComponent } from './registro-vecindarios/registro-vecindarios.component';
 import { DiscusionRegistroComponent } from './discusion-registro/discusion-registro.component';
 import { BlogDiscusionesComponent } from './blog-discusiones/blog-discusiones.component';
@@ -11,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './_guards/index';
 import { RegistroAportesComponent } from './registro-aportes/registro-aportes.component';
 import { RegistroSuplidorComponent } from './registro-suplidor/registro-suplidor.component';
+import { RegistroCuotasComponent } from './registro-cuotas/registro-cuotas.component';
+
 const appRoutes: Routes = [
   { path: 'solicitudes', component: SolicitudesComponent, canActivate: [AuthGuard] },
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -25,7 +28,8 @@ const appRoutes: Routes = [
   { path: 'vecinos', component: RegistroVecindariosComponent , canActivate: [AuthGuard]},
   { path: 'menu', component: MenuPrincipalComponent , canActivate: [AuthGuard]} ,
   { path: 'suplidores', component: RegistroSuplidorComponent , canActivate: [AuthGuard]} ,
-
+  { path: 'evento', component: RegistroEventosComponent , canActivate: [AuthGuard]} ,
+  { path: 'pagoscuota', component: RegistroCuotasComponent , canActivate: [AuthGuard]} ,
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];
