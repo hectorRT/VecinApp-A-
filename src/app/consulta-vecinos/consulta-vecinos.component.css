@@ -1,0 +1,13 @@
+#titulo{
+    margin-left: 13%;
+}
+
+#usr{
+    position: absolute;
+    width: 10%;
+    margin-left: 55%;
+}
+
+#usr,#inp,#butt{
+    display: inline;
+}

@@ -19,6 +19,7 @@ import { BlogDiscusionesComponent } from './blog-discusiones/blog-discusiones.co
 import { RegistroVecinoComponent } from './registro-vecino/registro-vecino.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { ConsultaDiscusionesComponent } from './consulta-discusiones/consulta-discusiones.component';
+import { ConsultaVecinosComponent } from './consulta-vecinos/consulta-vecinos.component';
 import { SolicitudesComponent } from './Solicitudes/Solicitudes.component';
 import { DiscusionRegistroComponent } from './discusion-registro/discusion-registro.component';
 import { RegistroVecindariosComponent } from './registro-vecindarios/registro-vecindarios.component';
@@ -54,7 +55,8 @@ const appRoutes: Routes = [
   { path: 'menu', component: MenuPrincipalComponent } ,
   { path: 'suplidores', component: RegistroSuplidorComponent } ,
   { path: 'eventos', component: RegistroEventosComponent },
-  { path: 'pagoscuota', component: RegistroCuotasComponent } 
+  { path: 'pagoscuota', component: RegistroCuotasComponent }, 
+  { path: 'consultavecinos', component: ConsultaVecinosComponent },
 ]
 
 @NgModule({
@@ -72,7 +74,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     HomeComponent,
     RegistroSuplidorComponent,
-    RegistroEventosComponent,RegistroCuotasComponent
+    RegistroEventosComponent,RegistroCuotasComponent,ConsultaVecinosComponent
   ],
   imports: [
     ReactiveFormsModule,

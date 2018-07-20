@@ -13,6 +13,7 @@ import { AuthGuard } from './_guards/index';
 import { RegistroAportesComponent } from './registro-aportes/registro-aportes.component';
 import { RegistroSuplidorComponent } from './registro-suplidor/registro-suplidor.component';
 import { RegistroCuotasComponent } from './registro-cuotas/registro-cuotas.component';
+import { ConsultaVecinosComponent } from './consulta-vecinos/consulta-vecinos.component';
 
 const appRoutes: Routes = [
   { path: 'solicitudes', component: SolicitudesComponent, canActivate: [AuthGuard] },
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
   { path: 'suplidores', component: RegistroSuplidorComponent , canActivate: [AuthGuard]} ,
   { path: 'evento', component: RegistroEventosComponent , canActivate: [AuthGuard]} ,
   { path: 'pagoscuota', component: RegistroCuotasComponent , canActivate: [AuthGuard]} ,
+  { path: 'consultavecinos', component: ConsultaVecinosComponent , canActivate: [AuthGuard]} ,
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];
