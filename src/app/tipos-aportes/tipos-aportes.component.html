@@ -1,0 +1,53 @@
+
+<!--header-->
+<header>
+
+  <div class="container">
+      <div class="row justify-content-md-center">
+              <div>
+                      <h1>Registro Tipo Aporte</h1>
+              </div>
+             
+      </div>
+
+  </div>
+</header>
+<hr>
+
+
+<!-- formulario -->
+<div class="container text-md-right">
+<form #tipoformAporte="ngForm" class="row">
+<div class="col-sm-12 offset-md-2 col-md-8 offset-lg-3 col-lg-6">
+   
+ 
+    <div class="form-group row">
+                 
+      </div>
+    </div>
+    <div class="form-group row">
+        <label for="categoria-select" class="col-sm-2 col-form-label">Nombre</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="nombretipoinput" id="nombretipoinput" [(ngModel)]="tipoaporte.Nombre" required>
+          
+        </div>
+    </div>   
+
+   <hr>
+
+     <!-- botónes -->
+     <div class="col">
+        <div class="botones"> 
+        <div class="d-flex align-items-center justify-content-center h-100">
+            <input type="button" style="margin:2px" class="btn btn-warning" (click)="limpiar(tipoformAporte)" value="Nuevo">
+            <input type="button" style="margin:2px" class="btn btn-primary" [disabled]="!tipoformAporte.valid"  (click)="addAportes(tipoformAporte)" value="Guardar">
+          
+            <input type="button" style="margin:2px" class="btn btn-danger" value="Eliminar">
+        </div>
+    </div>
+    </div>
+
+</div>
+
+</form>
+</div>

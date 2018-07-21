@@ -15,7 +15,7 @@ import { AppMaterialModule } from './AppMaterial/AppMaterialModule';
 import { AuthenticationService } from './_services/authentication.service';
 import { AuthGuard } from './_guards/index';
 import { SuplidorService } from '../Servicios/Suplidor-Service/Suplidor.service';
-
+import { TipoAporteService } from '../Servicios/TipoAporte-Service/TipoAporte.service'
 //Componentes
 import { RegistroSuplidorComponent } from './registro-suplidor/registro-suplidor.component';
 import { BlogDiscusionesComponent } from './blog-discusiones/blog-discusiones.component';
@@ -26,6 +26,7 @@ import { ConsultaVecinosComponent } from './consulta-vecinos/consulta-vecinos.co
 import { SolicitudesComponent } from './Solicitudes/Solicitudes.component';
 import { DiscusionRegistroComponent } from './discusion-registro/discusion-registro.component';
 import { RegistroVecindariosComponent } from './registro-vecindarios/registro-vecindarios.component';
+
 import { HeaderComponent } from './header/header.component';
 import { RegistroAportesComponent } from './registro-aportes/registro-aportes.component';
 import { LoginComponent } from './login/login.component';
@@ -43,6 +44,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegistroEventosComponent } from './registro-eventos/registro-eventos.component';
 import { RegistroCuotasComponent } from './registro-cuotas/registro-cuotas.component';
+import { TiposAportesComponent } from './tipos-aportes/tipos-aportes.component';
 
 
 const appRoutes: Routes = [
@@ -60,6 +62,7 @@ const appRoutes: Routes = [
   { path: 'eventos', component: RegistroEventosComponent },
   { path: 'pagoscuota', component: RegistroCuotasComponent }, 
   { path: 'consultavecinos', component: ConsultaVecinosComponent },
+  { path: 'tipoaportes', component: ConsultaVecinosComponent },
 ]
 
 @NgModule({
@@ -80,7 +83,8 @@ const appRoutes: Routes = [
     RegistroGastosComponent,
     RegistroPagocuotaComponent,
     RegistroVecindariosComponent,
-    RegistroVecinoComponent
+    RegistroVecinoComponent,
+    TiposAportesComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -95,7 +99,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserModule
   ],
-  providers: [Aporteservice,ComentariosService,DiscusionesService,VecinoService,FrecuenciaPagoService,EventoService ,SuplidorService,UserService,AlertService,AuthenticationService,AuthGuard,ComentariosService, DiscusionesService, VecinoService, SolicitudService, Aporteservice],
+  providers: [Aporteservice,TipoAporteService,ComentariosService,DiscusionesService,VecinoService,FrecuenciaPagoService,EventoService ,SuplidorService,UserService,AlertService,AuthenticationService,AuthGuard,ComentariosService, DiscusionesService, VecinoService, SolicitudService, Aporteservice],
   bootstrap: [AppComponent]
 })
 
