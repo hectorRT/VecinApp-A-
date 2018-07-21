@@ -1,0 +1,39 @@
+<!-- Header -->
+<div class="container">
+
+  <div class="row">
+
+      <div class="col-sm-11">
+          <header><h1>Proximos eventos del vecindario</h1></header>
+      </div>
+  
+    </div>
+
+</div>
+
+<hr>
+
+
+
+<!-- formulario -->
+<div class="container text-md-right">
+  
+  <div class="col-sm-12">
+
+    <button class="btn btn-primary" (click)="onCreate()">Crear evento</button>
+    <br>
+    <br>
+    
+    <div class="list-group">
+        
+      <button type="button" *ngFor="let evento of eventos" class="list-group-item" (click)="onItemClick(evento)">
+          <strong>{{ evento.Nombre }}</strong>
+          <br>
+          {{ evento.HoraInicio | date:'dd/MM/yyyy, hh:mm a' }}
+      </button>
+      
+    </div>
+
+  </div>
+
+</div>
