@@ -1,4 +1,3 @@
-import { PagoCuota } from './../../Clases/PagoCuota';
 import { Component, OnInit } from '@angular/core';
 import {PagoCuota} from '../../Clases/PagoCuota';
 import {PagoCuotaService} from '../../Servicios/PagoCuotas-Service/pagocuota.service';
