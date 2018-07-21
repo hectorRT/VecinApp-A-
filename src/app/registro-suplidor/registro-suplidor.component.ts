@@ -9,7 +9,7 @@ import {SuplidorService} from '../../Servicios/Suplidor-Service/Suplidor.service
 })
 export class RegistroSuplidorComponent implements OnInit {
 
-  suplidor:Suplidor;
+  suplidor: Suplidor;
 
   constructor(private SuplidorServicio : SuplidorService) { }
 
@@ -36,11 +36,11 @@ export class RegistroSuplidorComponent implements OnInit {
 
   limpiar(data)
   {
-    data.value.nombreInput='';
+    data.value.nombreInput = '';
     data.value.TelefonoInput = '';
-    data.value.DireccionInput='';
-    data.value.RepresentanteInput='';
-    data.value.TelRepresentanteInput='';
+    data.value.DireccionInput = '';
+    data.value.RepresentanteInput = '';
+    data.value.TelRepresentanteInput = '';
   }
 }
 

@@ -32,7 +32,7 @@ export class EventoService {
 
   getEventos(idVecindario: number): Observable<Evento[]> {
 
-    const url = `${this.rutaEventosURL}/${idVecindario}`;
+    const url = `${this.rutaEventosURL}/vecindario/${idVecindario}`;
     return this.httpClient.get<Evento[]>(url)
         .pipe(
           tap(eventos => this.log(`fetched eventos de vecindario`)),

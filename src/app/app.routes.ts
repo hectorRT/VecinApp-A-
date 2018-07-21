@@ -17,6 +17,7 @@ import { RegistroCuotasComponent } from './registro-cuotas/registro-cuotas.compo
 import { ConsultaVecinosComponent } from './consulta-vecinos/consulta-vecinos.component';
 import { RegistroGastosComponent } from './registro-gastos/registro-gastos.component';
 import { RegistroVecinoComponent } from './registro-vecino/registro-vecino.component';
+import { ConsultaEventosComponent } from './consulta-eventos/consulta-eventos.component';
 
 const appRoutes: Routes = [
   { path: 'solicitudes', component: SolicitudesComponent, canActivate: [AuthGuard] },
@@ -33,6 +34,8 @@ const appRoutes: Routes = [
   { path: 'menu', component: MenuPrincipalComponent , canActivate: [AuthGuard]} ,
   { path: 'suplidores', component: RegistroSuplidorComponent , canActivate: [AuthGuard]} ,
   { path: 'evento', component: RegistroEventosComponent , canActivate: [AuthGuard]} ,
+  { path: 'evento/:id', component: RegistroEventosComponent , canActivate: [AuthGuard]} ,
+  { path: 'eventos', component: ConsultaEventosComponent , canActivate: [AuthGuard]} ,
   { path: 'cuota', component: RegistroCuotasComponent , canActivate: [AuthGuard]} ,
   { path: 'consultavecinos', component: ConsultaVecinosComponent , canActivate: [AuthGuard]} ,
   { path: 'blogdiscusiones', component: BlogDiscusionesComponent , canActivate: [AuthGuard]} ,
