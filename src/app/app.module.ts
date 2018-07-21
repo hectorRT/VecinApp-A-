@@ -43,6 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegistroEventosComponent } from './registro-eventos/registro-eventos.component';
 import { RegistroCuotasComponent } from './registro-cuotas/registro-cuotas.component';
+import { ConsultaEventosComponent } from './consulta-eventos/consulta-eventos.component';
 
 
 const appRoutes: Routes = [
@@ -80,7 +81,8 @@ const appRoutes: Routes = [
     RegistroGastosComponent,
     RegistroPagocuotaComponent,
     RegistroVecindariosComponent,
-    RegistroVecinoComponent
+    RegistroVecinoComponent,
+    ConsultaEventosComponent
   ],
   imports: [
     ReactiveFormsModule,
