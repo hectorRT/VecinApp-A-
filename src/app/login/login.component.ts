@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
             } else {
                 if (data[0].Clave != this.model.Clave) {
                     this.loading = false;
-                    alert("No se logeo");
+                    alert("No Coinciden");
                 } else {
                     this.loading = false;
                     if (data[0].Email == this.model.Email && data[0].Clave == this.model.Clave) {
