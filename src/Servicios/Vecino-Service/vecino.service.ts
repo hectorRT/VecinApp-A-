@@ -18,6 +18,7 @@ export class VecinoService {
   private VecinoUrl="http://localhost:3000/vecinos";
   private VecinoEmailUrl="http://localhost:3000/Vecinos/Email";
   private ConsultaVecinoUrl="http://localhost:3000/Vecinos/Consulta";
+  private VecindarioUrl="http://localhost:3000/vecindario";
   constructor(private http:  HttpClient) { }
 
   getVecinos(): Observable<Vecino[]> {

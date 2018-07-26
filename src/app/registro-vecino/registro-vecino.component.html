@@ -20,9 +20,16 @@
           <div class="col-sm-12 offset-md-2 col-md-8 offset-lg-3 col-lg-6">
             <!--Id-->
               <div class="form-group row">
-                  <label for="id-input" class="col-sm-2 col-form-label">Id</label>
+                  <label for="id-input" class="col-sm-2 col-form-label">Vecindario</label>
                   <div class="col-sm-10">
-                      <input type="text" name="idInput" class="form-control" id="id-input" placeholder="Id" [(ngModel)]="id" required>
+
+                    <select class="form-control" id="Vecindario-select" name="VecindarioSelect" [(ngModel)]="VecindarioSelect" required>
+                            
+                            <option *ngFor="let vecindarios of vecindarioArray" value="{{vecindarios.IdVecindario}}">
+                               {{vecindarios.nombre}}
+                            </option>
+                    </select>
+                     
                   </div>
               
               </div>
@@ -106,7 +113,7 @@
                   <div class="botones"> 
                   <div class="d-flex align-items-center justify-content-center h-100">
                       <input type="button" style="margin:2px" class="btn btn-default" value="Nuevo" (click)="limpiar(formVecino)">
-                      <input type="button" style="margin:2px" class="btn btn-primary" (click)="addVecino(formVecino)" value="Guardar">
+                      <input type="button" style="margin:2px" class="btn btn-primary" [disabled]="!formVecino.valid" (click)="addVecino(formVecino)" value="Guardar">
                       <input type="button" style="margin:2px" class="btn btn-warning" value="Cancelar">
                       
                   </div>

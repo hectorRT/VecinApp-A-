@@ -6,6 +6,8 @@ import {Route} from '@angular/router';
 import { Cargo } from '../../Clases/Cargo';
 import { FrecuenciaPagoService } from '../../Servicios/Frecuencia/frecuencia-pago.service';
 import { Frecuencia } from '../../Clases/FrecuenciaPago';
+import { VecindarioService } from '../../Servicios/Vecindario-Service/vecindario-Servicio';
+import { VecindarioModel } from '../../Clases/Vecindario';
 
 
 @Component({
@@ -23,26 +25,20 @@ export class RegistroVecinoComponent implements OnInit {
   cargos:Array<Cargo>=[];
   frecuencia:Array<Frecuencia>=[];
   frecuenciaArray:Array<Frecuencia>=[];
-  nombres:string='';
+  vecindario:Array<VecindarioModel>=[];
+  vecindarioArray:Array<VecindarioModel>=[];
 
 
-  constructor(private vecinoServicio: VecinoService,private cargoServicio:CargoService,private frecuenciaServicios:FrecuenciaPagoService) { }
+  constructor(private vecindarioService:VecindarioService,private vecinoServicio: VecinoService,private cargoServicio:CargoService,private frecuenciaServicios:FrecuenciaPagoService) { }
 
   ngOnInit() {
 
     this.vecino= new Vecino();
     this.getCargos();
     this.getFrecuencias();
+    this.getVecindario();
   }
 
-
- /* getVecinos()
-  {
-    this.vecinoServicio.getVecinos().subscribe(res=>{
-      console.log(res);
-    });
-  }
-*/
 getCargos()
 {
 
@@ -64,10 +60,19 @@ getFrecuencias()
   })
 }
 
+getVecindario()
+{
+  this.vecindarioService.getVecindarios().subscribe(res=>{
+    console.log(res);
+    this.vecindario=res;
+    this.vecindarioArray=this.vecindario;
+    console.log(this.vecindarioArray);
+  })
+}
 
   addVecino(data) {
 
-    this.vecino.IdVecindario=1;
+    this.vecino.IdVecindario=data.value.VecindarioSelect;
     this.vecino.Nombres = data.value.nombreInput;
     this.vecino.Apellidos = data.value.apellidosInput;
     this.vecino.Cedula = data.value.cedulaInput;
@@ -88,31 +93,6 @@ getFrecuencias()
   }
 
 
-
-
-  /*getVecino(id:number) {
-   var data;
-   this.vecinoServicio.getVecino(1).subscribe(res => {
-      console.log(res.Nombres);
-      
-    });    
-    
-  }
-
-  buscarVecino()
-  {
-    this.vecinoServicio.getVecinos().subscribe(vecino=>{
-      this.vecinosArray=vecino;
-      this.vecinosFilter=this.vecinosArray;
-    });
-  }
-
-  filtrar()
-  {
-    this.vecinosFilter = this.vecinosArray.filter((veci:Vecino)=>veci.Nombres.includes(this.nombres));
-    console.log(this.vecinosFilter);
-
-  }*/
 
   limpiar(data)
   {

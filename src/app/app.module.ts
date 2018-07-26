@@ -46,6 +46,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegistroEventosComponent } from './registro-eventos/registro-eventos.component';
 import { RegistroCuotasComponent } from './registro-cuotas/registro-cuotas.component';
 import { TiposAportesComponent } from './tipos-aportes/tipos-aportes.component';
+import { VecindarioService } from '../Servicios/Vecindario-Service/vecindario-Servicio';
 
 
 const appRoutes: Routes = [
@@ -57,6 +58,7 @@ const appRoutes: Routes = [
   { path: 'rDiscusiones', component: DiscusionRegistroComponent },
   { path: 'rDiscusiones/:id', component: DiscusionRegistroComponent },
   { path: 'vecinos', component: RegistroVecinoComponent },
+  { path: 'vecindario', component: RegistroVecindariosComponent },
   { path: 'login', component: LoginComponent },
   { path: 'menu', component: MenuPrincipalComponent } ,
   { path: 'suplidores', component: RegistroSuplidorComponent } ,
@@ -101,7 +103,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserModule
   ],
-  providers: [Aporteservice,TipoAporteService,ComentariosService,DiscusionesService,VecinoService,FrecuenciaPagoService,EventoService ,SuplidorService,UserService,AlertService,AuthenticationService,AuthGuard,ComentariosService, DiscusionesService, VecinoService, SolicitudService, Aporteservice],
+  providers: [Aporteservice,TipoAporteService,ComentariosService,DiscusionesService,VecinoService,FrecuenciaPagoService,EventoService ,SuplidorService,UserService,AlertService,AuthenticationService,AuthGuard,ComentariosService, DiscusionesService, VecinoService, SolicitudService, Aporteservice,VecindarioService],
   bootstrap: [AppComponent]
 })
 
