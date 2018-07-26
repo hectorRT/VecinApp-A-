@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
                 } else {
                     this.loading = false;
                     if (data[0].Email == this.model.Email && data[0].Clave == this.model.Clave) {
+                        this.authenticationService.asig(data);
                         this.authenticationService.cargartrue();
                         localStorage.setItem('token', data[0].Email);
                         this.router.navigate([this.returnUrl]);                       

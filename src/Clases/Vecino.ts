@@ -5,12 +5,12 @@ export class Vecino{
         public IdVecindario?:number,
         public IdCargo?:number,
         public Idfrecuencia?:number,
-        public Nombres?:String,
-        public Apellidos?:String,
+        public Nombres?:string,
+        public Apellidos?:string,
         public Cedula?: number,
         public Email?:string,
         public Clave?:string,
-        public Direccion?:String
+        public Direccion?:string
     ){
         this.IdVecino= (IdVecino) ? IdVecino : 0;
         this.IdVecindario = (IdVecindario) ? IdVecindario : 0;
