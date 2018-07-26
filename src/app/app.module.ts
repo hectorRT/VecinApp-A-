@@ -26,6 +26,7 @@ import { ConsultaVecinosComponent } from './consulta-vecinos/consulta-vecinos.co
 import { SolicitudesComponent } from './Solicitudes/Solicitudes.component';
 import { DiscusionRegistroComponent } from './discusion-registro/discusion-registro.component';
 import { RegistroVecindariosComponent } from './registro-vecindarios/registro-vecindarios.component';
+import {ConsultaEventosComponent} from './consulta-eventos/consulta-eventos.component';
 
 import { HeaderComponent } from './header/header.component';
 import { RegistroAportesComponent } from './registro-aportes/registro-aportes.component';
@@ -78,6 +79,7 @@ const appRoutes: Routes = [
     RegistroSuplidorComponent,
     RegistroEventosComponent,
     ConsultaVecinosComponent,
+    ConsultaEventosComponent,
     DiscusionRegistroComponent,
     RegistroCuotasComponent,
     RegistroGastosComponent,
