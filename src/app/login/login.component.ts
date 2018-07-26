@@ -32,23 +32,30 @@ export class LoginComponent implements OnInit {
 
     get isLoggedIn() {
         this.loggedIn.next(true);
-      return this.loggedIn.asObservable();
+        return this.loggedIn.asObservable();
     }
 
     login() {
         this.loading = true;
-        // this.authenticationService.login(this.model.username, this.model.password)
-        //     .subscribe(
-        //         data => {
-            localStorage.setItem('currentUser', JSON.stringify("admin"));
-                    this.router.navigate([this.returnUrl]);
+        this.authenticationService.login(this.model).subscribe(data => {
+            if (data[0] == undefined) {
+                this.loading = false;
+                alert("No se logeo");
+            } else {
+                if (data[0].Clave != this.model.Clave) {
+                    this.loading = false;
+                    alert("No se logeo");
+                } else {
+                    this.loading = false;
+                    if (data[0].Email == this.model.Email && data[0].Clave == this.model.Clave) {
+                        this.authenticationService.cargartrue();
+                        localStorage.setItem('token', data[0].Email);
+                        this.router.navigate([this.returnUrl]);                       
+                    }
+                }
+            }
+        })
+        
 
-                    this.authenticationService.cargartrue();
-
-                // },
-                // error => {
-                //     this.alertService.error(error);
-                //     this.loading = false;
-                // });
-
-    }}
+    }
+}
