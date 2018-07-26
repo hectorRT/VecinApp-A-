@@ -10,7 +10,6 @@ import { ComentariosService } from "../Servicios/Comentarios.Service/comentarios
 import { VecinoService } from '../Servicios/Vecino-Service/vecino.service';
 import { Aporteservice } from '../Servicios/Aportes-Service/aporte.service';
 import { AlertService } from './_services/alert.service';
-import { UserService } from './_services/user.service';
 import { AppMaterialModule } from './AppMaterial/AppMaterialModule';
 import { AuthenticationService } from './_services/authentication.service';
 import { AuthGuard } from './_guards/index';
@@ -101,7 +100,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserModule
   ],
-  providers: [Aporteservice,TipoAporteService,ComentariosService,DiscusionesService,VecinoService,FrecuenciaPagoService,EventoService ,SuplidorService,UserService,AlertService,AuthenticationService,AuthGuard,ComentariosService, DiscusionesService, VecinoService, SolicitudService, Aporteservice],
+  providers: [Aporteservice,TipoAporteService,ComentariosService,DiscusionesService,VecinoService,FrecuenciaPagoService,EventoService ,SuplidorService,AlertService,AuthenticationService,AuthGuard,ComentariosService, DiscusionesService, VecinoService, SolicitudService, Aporteservice],
   bootstrap: [AppComponent]
 })
 
