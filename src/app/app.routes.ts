@@ -41,7 +41,7 @@ const appRoutes: Routes = [
   { path: 'blogdiscusiones', component: BlogDiscusionesComponent , canActivate: [AuthGuard]} ,
   { path: 'gastos', component: RegistroGastosComponent , canActivate: [AuthGuard]} ,
   { path: 'pagocuotas', component: RegistroPagocuotaComponent , canActivate: [AuthGuard]} ,
-  { path: 'registrovecino', component: RegistroVecinoComponent , canActivate: [AuthGuard]} ,
+  { path: 'vecino', component: RegistroVecinoComponent , canActivate: [AuthGuard]} ,
   { path: 'registrovecindario', component: RegistroVecindariosComponent , canActivate: [AuthGuard]} ,
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
