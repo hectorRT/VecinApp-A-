@@ -43,6 +43,7 @@ const appRoutes: Routes = [
   { path: 'pagocuotas', component: RegistroPagocuotaComponent , canActivate: [AuthGuard]} ,
   { path: 'vecino', component: RegistroVecinoComponent , canActivate: [AuthGuard]} ,
   { path: 'registrovecindario', component: RegistroVecindariosComponent , canActivate: [AuthGuard]} ,
+  { path: 'gastos', component: RegistroGastosComponent , canActivate: [AuthGuard]} ,
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];

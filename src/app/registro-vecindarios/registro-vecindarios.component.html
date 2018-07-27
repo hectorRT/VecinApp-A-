@@ -4,7 +4,7 @@
   <div class="container">
       <div class="row justify-content-md-center">
               <div>
-                      <h1>{{titulo}}</h1>
+                      <h1>Registro Vecindario</h1>
               </div>
              
       </div>
@@ -19,13 +19,13 @@
       <form #formVecindario="ngForm" class="row">
           <div class="col-sm-12 offset-md-2 col-md-8 offset-lg-3 col-lg-6">
             <!--Id Vecindario-->
-              <div class="form-group row">
+             <!-- <div class="form-group row">
                   <label for="IdVecindario-input" class="col-sm-2 col-form-label">Id Vecindario</label>
                   <div class="col-sm-10">
                       <input type="text" name="IdVecindarioInput" class="form-control" id="IdVecindario-input" placeholder="IdVecindario" [(ngModel)]="IdVecindario" required>
                   </div>
               
-              </div>
+              </div>-->
               <!--Nombre Vecindario-->
               <div class="form-group row">
                   <label for="NombreVecindario-input" class="col-sm-2 col-form-label">Nombre Vecindario</label>
@@ -87,8 +87,8 @@
                   <div class="botones"> 
                   <div class="d-flex align-items-center justify-content-center h-100">
                       <input type="button" style="margin:2px" class="btn btn-default" value="Nuevo" (click)="limpiar(formVecindario)">
-                      <input type="button" style="margin:2px" class="btn btn-primary" value="Guardar" (click)="addVecindario(formVecindario)" >
-                      <input type="button" style="margin:2px" class="btn btn-warning" value="Cancelar">
+                      <input type="button" style="margin:2px" class="btn btn-primary" value="Guardar" [disabled]="!formVecindario.valid" (click)="addVecindario(formVecindario)" >
+                      
                       
                   </div>
                  </div>

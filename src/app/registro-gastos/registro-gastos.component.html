@@ -1,3 +1,92 @@
-<p>
-  registro-gastos works!
-</p>
+<!--header-->
+<header>
+
+  <div class="container">
+      <div class="row justify-content-md-center">
+              <div>
+                      <h1>Registro Gastos</h1>
+              </div>
+             
+      </div>
+
+  </div>
+</header>
+<hr>
+
+<!--contenido-->
+
+<div class="container text-md-right">
+      <form #formGasto="ngForm" class="row" >
+          <div class="col-sm-12 offset-md-2 col-md-8 offset-lg-3 col-lg-6">
+            <!--Id vecino-->
+              <div class="form-group row">
+                  <label for="id-input" class="col-sm-2 col-form-label">Vecino</label>
+                  <div class="col-sm-10">
+
+                    <select class="form-control" id="Vecino-select" name="VecinoSelect" [(ngModel)]="VecinoSelect" required>
+                            
+                            <option *ngFor="let vecino of vecinosArray" value="{{vecino.IdVecino}}">
+                               {{vecino.Nombres}}
+                            </option>
+                    </select>
+                     
+                  </div>
+              
+              </div>
+
+
+              <!--Id Suplidor-->
+              <div class="form-group row">
+                <label for="id-input" class="col-sm-2 col-form-label">Suplidor</label>
+                <div class="col-sm-10">
+
+                  <select class="form-control" id="Suplidor-select" name="SuplidorSelect" [(ngModel)]="SuplidorSelect" required>
+                          
+                          <option *ngFor="let suplidor of suplidorArray" value="{{suplidor.IdSuplidor}}">
+                             {{suplidor.Nombre}}
+                          </option>
+                  </select>
+                   
+                </div>
+            
+            </div>
+
+
+
+              
+              <!--Nombres-->
+              <div class="form-group row">
+                  <label for="Nombres-input" class="col-sm-2 col-form-label">Descripcion</label>
+                  <div class="col-sm-10">
+                      <input type="text" name="nombreInput" class="form-control" id="nombre-input" placeholder="Descripcion" [(ngModel)]="nombres" required>
+                  </div>
+              </div>
+
+              
+              <!--<Monto>-->
+              <div class="form-group row">
+                  <label for="monto-input" class="col-sm-2 col-form-label">Monto</label>
+                  <div class="col-sm-10">
+                      <input type="text" name="MontoInput" class="form-control" id="monto-input" placeholder="Monto" [(ngModel)]="cedula" required>
+                    
+                  </div>
+              </div>
+             
+             
+
+              <!-- botónes -->
+              <div class="col">
+                  <div class="botones"> 
+                  <div class="d-flex align-items-center justify-content-center h-100">
+                      <input type="button" style="margin:2px" class="btn btn-default" value="Nuevo" (click)="limpiar(formGasto)">
+                      <input type="button" style="margin:2px" class="btn btn-primary" [disabled]="!formGasto.valid" (click)="addGasto(formGasto)" value="Guardar">
+                      
+                      
+                  </div>
+              </div>
+              </div>
+
+
+          </div>
+      </form>
+  </div>
