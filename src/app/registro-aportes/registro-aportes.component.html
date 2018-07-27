@@ -22,18 +22,31 @@
      
    
       <div class="form-group row">
-          <label for="fechainput" class="col-sm-2 col-form-label">Vecino</label>
+          <label for="idVecinoinput" class="col-sm-2 col-form-label">Vecino</label>
           <div class="col-sm-10">
           
                 <select class="form-control" id="idVecinoinput" name="idVecinoinput" [(ngModel)]="aporte.IdVecino"  required>
                   <option *ngFor="let VecinoArray of VecinosArray" value="{{VecinoArray.IdVecino}}">
                       {{VecinoArray.Nombres}}
                   </option>
-                </select>
-
-            
+                </select>   
         </div>
       </div>
+
+      <div class="form-group row">
+        <label for="fechainput" class="col-sm-2 col-form-label">Tipo</label>
+        <div class="col-sm-10">
+        
+              <select class="form-control" id="idtipoinput" name="idtipoinput" [(ngModel)]="aporte.IdTipoAporte"  required>
+                <option *ngFor="let TipoaporteArray of TipoaportesArray" value="{{TipoaporteArray.IdTipoAporte}}">
+                    {{TipoaporteArray.Nombre}}
+                </option>
+              </select>
+
+          
+      </div>
+    </div>
+
       <div class="form-group row">
           <label for="categoria-select" class="col-sm-2 col-form-label">Nombre</label>
           <div class="col-sm-10">

@@ -40,6 +40,14 @@ export class TipoAporteService {
   }
 
 
+  getAlltipo(): Observable<TiposAportes[]> {
+
+    return this.http.get<TiposAportes[]>(this.tipoUrl)
+      .pipe(
+        tap(heroes => this.log('fetched Frecuencia')),
+        catchError(this.handleError('getFrecuencia', []))
+      );
+  }
 
 
 
