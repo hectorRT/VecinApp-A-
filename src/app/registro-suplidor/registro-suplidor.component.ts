@@ -27,7 +27,7 @@ export class RegistroSuplidorComponent implements OnInit {
   
       this.SuplidorServicio.addSuplidor(this.suplidor).subscribe(res => {
         console.log(res);
-        this.suplidor.IdSuplidor = res.data.insertId;
+        this.suplidor.IdSuplidor = res.data.InsertId;
       });
   
       alert("Registrado");

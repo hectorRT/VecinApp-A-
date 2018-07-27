@@ -56,5 +56,4 @@ export class SuplidorService {
   private log(message: string) {
     console.log('SuplidorService: ' + message);
   }
-
 }
