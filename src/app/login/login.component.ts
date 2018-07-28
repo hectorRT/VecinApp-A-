@@ -4,6 +4,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map'
 import { BehaviorSubject } from 'rxjs';
 import { AlertService, AuthenticationService } from '../_services/index';
+import { Vecino } from '../../Clases/Vecino';
+import { Frecuencia } from '../../Clases/FrecuenciaPago';
+import { FrecuenciaPagoService } from '../../Servicios/Frecuencia/frecuencia-pago.service';
+import {VecinoService} from '../../Servicios/Vecino-Service/vecino.service';
 
 
 @Component({
@@ -14,12 +18,19 @@ export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
     returnUrl: string;
+    registrando = false;
+    usuario: Vecino = {};
+    frecuenciaArray:Array<Frecuencia>=[];
+    frecuencia:Array<Frecuencia>=[];
 
     constructor(
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService,
-        private alertService: AlertService) { }
+        private alertService: AlertService,
+        private frecuenciaServicios:FrecuenciaPagoService,
+        private vecinoServicio: VecinoService
+    ) { }
 
     ngOnInit() {
         // reset login status
@@ -34,6 +45,42 @@ export class LoginComponent implements OnInit {
         this.loggedIn.next(true);
         return this.loggedIn.asObservable();
     }
+
+    onRegistrar() {
+        this.getFrecuencias();
+        this.registrando = !this.registrando;
+    }
+
+    getFrecuencias()
+{
+  this.frecuenciaServicios.getFrecuencia().subscribe(res=>{
+    console.log(res);
+    this.frecuencia=res;
+     this.frecuenciaArray=this.frecuencia;
+     console.log(this.frecuenciaArray);
+  })
+}
+
+addVecino(data) {
+
+    this.usuario.Nombres = data.value.nombreInput;
+    this.usuario.Apellidos = data.value.apellidosInput;
+    this.usuario.Cedula = data.value.cedulaInput;
+    this.usuario.Email = data.value.emailInput;
+    this.usuario.Clave=data.value.claveInput;
+    this.usuario.Direccion =data.value.direccionInput;
+    this.usuario.Idfrecuencia=data.value.FrecuenciaSelect;
+    this.usuario.IdCargo=4;
+
+      this.vecinoServicio.addVecino(this.usuario).subscribe(res => {
+        console.log(res);
+        this.usuario.IdVecino = res.data.insertId;
+        this.model.Email = this.usuario.Email;
+        this.model.Clave = this.usuario.Clave;
+        this.registrando = false;
+      });     
+
+  }
 
     login() {
         this.loading = true;
