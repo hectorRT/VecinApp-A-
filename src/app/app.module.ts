@@ -46,6 +46,7 @@ import { RegistroEventosComponent } from './registro-eventos/registro-eventos.co
 import { RegistroCuotasComponent } from './registro-cuotas/registro-cuotas.component';
 import { TiposAportesComponent } from './tipos-aportes/tipos-aportes.component';
 import { VecindarioService } from '../Servicios/Vecindario-Service/vecindario-Servicio';
+import { gastoService } from '../Servicios/Gasto/GastoService';
 
 
 const appRoutes: Routes = [
@@ -65,6 +66,7 @@ const appRoutes: Routes = [
   { path: 'pagoscuota', component: RegistroCuotasComponent }, 
   { path: 'consultavecinos', component: ConsultaVecinosComponent },
   { path: 'tipoaportes', component: ConsultaVecinosComponent },
+  {path: 'Gastos', component:RegistroGastosComponent},
 ]
 
 @NgModule({
@@ -102,7 +104,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserModule
   ],
-  providers: [Aporteservice,TipoAporteService,ComentariosService,DiscusionesService,VecinoService,FrecuenciaPagoService,EventoService ,SuplidorService,AlertService,AuthenticationService,AuthGuard,ComentariosService, DiscusionesService, VecinoService, SolicitudService, Aporteservice,VecindarioService],
+  providers: [Aporteservice,gastoService,TipoAporteService,ComentariosService,DiscusionesService,VecinoService,FrecuenciaPagoService,EventoService ,SuplidorService,AlertService,AuthenticationService,AuthGuard,ComentariosService, DiscusionesService, VecinoService, SolicitudService, Aporteservice,VecindarioService],
   bootstrap: [AppComponent]
 })
 

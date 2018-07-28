@@ -4,7 +4,7 @@
   <div class="container">
       <div class="row justify-content-md-center">
               <div>
-                      <h1>{{titulo}}</h1>
+                      <h1>Registro Suplidor</h1>
               </div>
              
       </div>
@@ -17,13 +17,13 @@
       <form #formSuplidor="ngForm" class="row" (ngSubmit)="buscarSuplidor()">
           <div class="col-sm-12 offset-md-2 col-md-8 offset-lg-3 col-lg-6">
             <!--Id Suplidor-->
-              <div class="form-group row">
+            <!-- <div class="form-group row">
                   <label for="IdSuplidor-input" class="col-sm-2 col-form-label">Id Suplidor</label>
                   <div class="col-sm-10">
                       <input type="text" name="IdSuplidorInput" class="form-control" id="IdSuplidor-input" placeholder="Id Suplidor" [(ngModel)]="IdSuplidor" required>
                   </div>
               
-              </div>
+              </div>-->
               <!--Nombre-->
               <div class="form-group row">
                   <label for="Nombre-input" class="col-sm-2 col-form-label">Nombre</label>
@@ -69,9 +69,8 @@
                   <div class="botones"> 
                   <div class="d-flex align-items-center justify-content-center h-100">
                       <input type="button" style="margin:2px" class="btn btn-default" value="Nuevo" (click)="limpiar(formSuplidor)">
-                      <button type="button" style="margin:2px" class="btn btn-primary" (click)="addSuplidor(formSuplidor)" >Guardar</button>
-                      <input type="button" style="margin:2px" class="btn btn-warning" value="Cancelar">
-                      <button type="button" style="margin:2px" class="btn btn-danger" value="Buscar" (click)="filtrar()">Buscar</button>
+                      <button type="button" style="margin:2px" class="btn btn-primary" [disabled]="!formSuplidor.valid" (click)="addSuplidor(formSuplidor)" >Guardar</button>
+                    
                   </div>
               </div>
               </div>

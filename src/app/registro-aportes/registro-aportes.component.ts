@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {Aportes} from '../../Clases/Aportes';
 import { Aporteservice } from './../../Servicios/Aportes-Service/aporte.service';
 import { VecinoService } from './../../Servicios/Vecino-Service/vecino.service';
+import { TipoAporteService } from './../../Servicios/TipoAporte-Service/TipoAporte.service';
 import {Vecino} from '../../Clases/Vecino';
+import {TiposAportes} from '../../Clases/TipoAporte';
 import {Route} from '@angular/router';
 
 
@@ -23,15 +25,30 @@ export class RegistroAportesComponent implements OnInit {
   tema:string='';
 
 
-  constructor(private AporteServicio: Aporteservice,private Vecinoservice: VecinoService) { }
+  TipoaporteArray: Array<TiposAportes>=[];
+  TipoaportesArray: Array<TiposAportes>=[];
+  
+  constructor(private AporteServicio: Aporteservice,private Vecinoservice: VecinoService, private TipoService: TipoAporteService) { }
 
   ngOnInit() {
 
     this.aporte= new Aportes();
     this.getVecinos();
+    this.  gettipo();
     this.vecino= new Vecino();
   
   }
+
+  gettipo()
+  {
+    this.TipoService.getAlltipo().subscribe(res=>{
+      console.log(res);
+      this.TipoaporteArray=res;
+       this.TipoaportesArray=this.TipoaporteArray;
+       console.log(this.VecinosArray);
+    })
+  }
+  
 
 
   addAportes(data) {

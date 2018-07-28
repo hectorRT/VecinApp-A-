@@ -4,12 +4,12 @@ export class Frecuencia{
 
     constructor(
 
-        public  Idfrecuencia?:number,
+        public  IdFrecuencia?:number,
          public frecuencia?:string
       )
       {
   
-          this.Idfrecuencia=(Idfrecuencia) ? Idfrecuencia:0;
+          this.IdFrecuencia=(IdFrecuencia) ? IdFrecuencia:0;
           this.frecuencia =frecuencia;
       }
 

@@ -41,6 +41,8 @@ export class RegistroSuplidorComponent implements OnInit {
     data.value.DireccionInput = '';
     data.value.RepresentanteInput = '';
     data.value.TelRepresentanteInput = '';
+
+    window.location.reload();
   }
 }
 
