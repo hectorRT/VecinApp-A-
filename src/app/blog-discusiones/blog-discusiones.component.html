@@ -15,7 +15,7 @@
       
         <h4><strong>{{discusion.Titulo}}</strong></h4>
         <!-- Necesario que el botón vaya en medio del titulo y la descripción al parecer -->
-        <button class="btn btn-success pull-right" (click)="onUpdate()">Modificar</button>
+        <button *ngIf="idCargo <= 2" class="btn btn-success pull-right" (click)="onUpdate()">Modificar</button>
 
         <p>{{discusion.Descripcion}}</p>
 

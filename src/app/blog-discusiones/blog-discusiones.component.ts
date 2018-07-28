@@ -4,6 +4,7 @@ import { DiscusionesService } from "../../Servicios/Discusiones-Service/discusio
 import { Comentario } from "../../Clases/Comentario";
 import { Discusion } from "../../Clases/Discusion";
 import { ActivatedRoute, Router } from "@angular/router";
+import { AuthenticationService } from './../_services/authentication.service';
 
 @Component({
   selector: 'app-blog-discusiones',
@@ -14,12 +15,34 @@ export class BlogDiscusionesComponent implements OnInit {
 
   discusion: Discusion;
   discusionComentarios: Array<Comentario>;
-  comentario: Comentario
+  comentario: Comentario;
+  idVecindario = 0;
+  idVecino = 0;
+  idCargo = 0;
 
-  constructor(private _route: ActivatedRoute, private _router: Router, private discusionService: DiscusionesService,
-            private comentarioService: ComentariosService) { }
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private discusionService: DiscusionesService,
+    private comentarioService: ComentariosService,
+    private auth: AuthenticationService) { }
+
+  getCurrentUser() {
+    if (localStorage.getItem('token')) {
+      this.auth.ObtenerDatos(localStorage.getItem('token')).subscribe(resultado => {
+          this.idCargo = resultado[0].IdCargo;
+          this.idVecindario = resultado[0].IdVecindario;
+          this.idVecino = resultado[0].IdVecino;
+          console.log("IdVecindario: " + this.idVecindario + " - IdVecino: " + this.idVecino + " - IdCargo: " + this.idCargo);
+      })
+    } else {
+        this.auth.authenticated = false;
+        localStorage.removeItem('token');
+    }
+  }
 
   ngOnInit() {
+    this.getCurrentUser();
     this.comentario = new Comentario();
     this.discusion = new Discusion();
     this.discusionComentarios = [];
