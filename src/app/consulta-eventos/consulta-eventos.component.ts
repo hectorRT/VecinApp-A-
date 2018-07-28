@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Evento } from '../../Clases/Evento';
 import { EventoService } from '../../Servicios/Evento/evento.service';
 import { Router } from '@angular/router';
+import { AuthenticationService } from './../_services/authentication.service';
 
 @Component({
   selector: 'app-consulta-eventos',
@@ -10,15 +11,31 @@ import { Router } from '@angular/router';
 })
 export class ConsultaEventosComponent implements OnInit {
   eventos: Array<Evento> = [];
+  idVecindario: number = 0;
 
-  constructor(private router: Router, public eventoService: EventoService) { }
+  constructor(private router: Router, public eventoService: EventoService, private auth: AuthenticationService) {
+    
+  }
+
+  getCurrentUser() {
+    if (localStorage.getItem('token')) {
+      this.auth.ObtenerDatos(localStorage.getItem('token')).subscribe(resultado => {
+          this.idVecindario = resultado[0].IdVecindario;
+          console.log("IdVecindario: " + this.idVecindario);
+          this.cargarEventos();
+      })
+    } else {
+        this.auth.authenticated = false;
+        localStorage.removeItem('token');
+    }
+  }
 
   ngOnInit() {
-    this.cargarEventos();
+    this.getCurrentUser();
   }
 
   cargarEventos() {
-    this.eventoService.getEventos(3).subscribe(eventos => {
+    this.eventoService.getEventos(this.idVecindario).subscribe(eventos => {
       this.eventos = eventos;
       // console.log(eventos);
     });

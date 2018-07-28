@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Evento } from '../../Clases/Evento';
 
 import { EventoService } from '../../Servicios/Evento/evento.service';
+import { AuthenticationService } from './../_services/authentication.service';
 
 @Component({
   selector: 'app-registro-eventos',
@@ -14,10 +15,25 @@ import { EventoService } from '../../Servicios/Evento/evento.service';
 export class RegistroEventosComponent implements OnInit {
 
   evento: Evento = {}
+  idVecindario: number = 0;
+  timeInputType = "datetime-local";
 
-  constructor(public eventoService: EventoService, private _route: ActivatedRoute) { }
+  constructor(public eventoService: EventoService, private _route: ActivatedRoute, private auth: AuthenticationService) { }
 
+  getCurrentUser() {
+    if (localStorage.getItem('token')) {
+      this.auth.ObtenerDatos(localStorage.getItem('token')).subscribe(resultado => {
+          this.idVecindario = resultado[0].IdVecindario;
+          console.log("IdVecindario: " + this.idVecindario);
+      })
+    } else {
+        this.auth.authenticated = false;
+        localStorage.removeItem('token');
+    }
+  }
+  
   ngOnInit() {
+    this.getCurrentUser();
     this.cargarPosibleEvento();
   }
 
@@ -27,6 +43,7 @@ export class RegistroEventosComponent implements OnInit {
     if (id > 0) {
       this.eventoService.getEvento(id).subscribe(evento => {
         this.evento = evento[0];
+        this.timeInputType = "datetime";
         console.log(this.evento);
       });
     }
@@ -34,7 +51,7 @@ export class RegistroEventosComponent implements OnInit {
 
   limpiar() {
     this.evento = {};
-
+    this.timeInputType = "datetime-local";
   }
 
   onSave() {
@@ -50,7 +67,7 @@ export class RegistroEventosComponent implements OnInit {
   create(){
     
     // asignar el IdVecindario correspondiente cuando login esté listo
-    this.evento.IdVecindario = 3;
+    this.evento.IdVecindario = this.idVecindario;
 
     this.eventoService.addEvento(this.evento).subscribe(res =>
       {
