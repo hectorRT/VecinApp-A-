@@ -3,7 +3,7 @@ import { DiscusionesService } from "../../Servicios/Discusiones-Service/discusio
 import { Discusion } from "../../Clases/Discusion";
 import { EstadoDiscusion } from '../../Clases/EstadoDiscusion';
 import { FormControl } from '../../../node_modules/@angular/forms';
-import { ActivatedRoute } from '../../../node_modules/@angular/router';
+import { ActivatedRoute, Router } from '../../../node_modules/@angular/router';
 
 import { AuthenticationService } from './../_services/authentication.service';
 import { Vecino } from '../../Clases/Vecino';
@@ -20,13 +20,21 @@ export class DiscusionRegistroComponent implements OnInit {
   idVecino: number = 0;
   idVecindario: number = 0;
 
-  constructor(private discusionService: DiscusionesService, private _route: ActivatedRoute, public auth: AuthenticationService) {
+  constructor(
+    private discusionService: DiscusionesService,
+    private _route: ActivatedRoute,
+    public auth: AuthenticationService,
+    public router: Router
+  ) {
     
   }
 
   getCurrentUser() {
     if (localStorage.getItem('token')) {
       this.auth.ObtenerDatos(localStorage.getItem('token')).subscribe(resultado => {
+          if (resultado[0].IdCargo > 2) {
+            this.router.navigate([`/`]);
+          }
           this.idVecindario = resultado[0].IdVecindario;
           this.idVecino = resultado[0].IdVecino;
           console.log("IdVecindario: " + this.idVecindario + " - IdVecino: " + this.idVecino);
