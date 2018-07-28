@@ -1,6 +1,6 @@
+import { Vecino } from './../../Clases/Vecino';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../_models/index';
 import { AuthenticationService } from '../_services/authentication.service'
 
 @Component({
@@ -10,16 +10,15 @@ import { AuthenticationService } from '../_services/authentication.service'
   
 })
 export class HeaderComponent implements OnInit {
-  currentUser: User;
-  users: User[] = [];
+  currentUser: Vecino;
   isLoggedIn$: Observable<boolean>;
 
-  constructor( private AuthenticationService: AuthenticationService) {
-      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-      this.isLoggedIn$ = this.AuthenticationService.isLoggedIn;
+  constructor( public AuthenticationService: AuthenticationService) {
+   
+      
   }
 
   ngOnInit() {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    // this.currentUser = JSON.parse(localStorage.getItem('token'));
   }
 }

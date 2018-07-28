@@ -27,10 +27,8 @@ export class ConsultaVecinosComponent implements OnInit {
   {
     this.vecino=data.value.inputFilter;
     this.vecinoService.getVecinoNombre(this.vecino).subscribe(result=>{
-      console.log(result);
       this.vecinosArray=result;
       this.vecinosFilter=this.vecinosArray;
-      console.log('Vecinos--> '+this.vecinosArray);
 
     });
 

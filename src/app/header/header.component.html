@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" *ngIf="isLoggedIn$ | async as isLoggedIn">
+<ng-template [ngIf]="AuthenticationService.isLoggedIn">
 
   <head>
     <title>Bootstrap Example</title>
@@ -85,4 +85,4 @@
       </div>
     </nav>
   </header>
-</mat-toolbar>
+</ng-template>

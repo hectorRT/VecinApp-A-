@@ -29,7 +29,6 @@ export class RegistroCuotasComponent implements OnInit {
     this.Cuotas.saldada = data.value.saldadaInput;
 
     this.CuotaServico.addCuotas(this.Cuotas).subscribe(res =>{
-      console.log(res);
       this.Cuotas.IdCuota = res.data.inserId;
     });
 
