@@ -12,6 +12,7 @@ import { AuthenticationService } from './../_services/authentication.service';
 export class ConsultaEventosComponent implements OnInit {
   eventos: Array<Evento> = [];
   idVecindario: number = 0;
+  idCargo = "";
 
   constructor(private router: Router, public eventoService: EventoService, private auth: AuthenticationService) {
     
@@ -21,7 +22,8 @@ export class ConsultaEventosComponent implements OnInit {
     if (localStorage.getItem('token')) {
       this.auth.ObtenerDatos(localStorage.getItem('token')).subscribe(resultado => {
           this.idVecindario = resultado[0].IdVecindario;
-          console.log("IdVecindario: " + this.idVecindario);
+          this.idCargo = resultado[0].IdCargo;
+          console.log("IdVecindario: " + this.idVecindario + " - IdCargo: " + this.idCargo);
           this.cargarEventos();
       })
     } else {

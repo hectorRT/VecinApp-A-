@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Evento } from '../../Clases/Evento';
 
@@ -16,13 +16,22 @@ export class RegistroEventosComponent implements OnInit {
 
   evento: Evento = {}
   idVecindario: number = 0;
+  idCargo:number = 0;
   timeInputType = "datetime-local";
 
-  constructor(public eventoService: EventoService, private _route: ActivatedRoute, private auth: AuthenticationService) { }
+  constructor(
+    public router: Router,
+    public eventoService: EventoService,
+    private _route: ActivatedRoute,
+    private auth: AuthenticationService
+  ) { }
 
   getCurrentUser() {
     if (localStorage.getItem('token')) {
       this.auth.ObtenerDatos(localStorage.getItem('token')).subscribe(resultado => {
+          if (resultado[0].IdCargo > 2) {
+            this.router.navigate([`/`]);
+          }
           this.idVecindario = resultado[0].IdVecindario;
           console.log("IdVecindario: " + this.idVecindario);
       })

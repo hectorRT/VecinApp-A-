@@ -20,7 +20,7 @@
   
   <div class="col-sm-12">
 
-    <button class="btn btn-primary" (click)="onCreate()">Crear evento</button>
+    <button class="btn btn-primary" (click)="onCreate()" *ngIf="idCargo == 1 || idCargo == 2">Crear evento</button>
     <br>
     <br>
     
